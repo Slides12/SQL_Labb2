@@ -1,0 +1,99 @@
+﻿<UserControl x:Class="SQL_Labb2.View.MenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             xmlns:local="clr-namespace:SQL_Labb2.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" >
+    <Grid>
+        <!--Dockpanel-->
+
+
+        <Menu Background="SlateGray">
+            <!--File Menu-->
+
+            <MenuItem Header="_File" >
+
+                <MenuItem x:Name="newQPMenu" 
+                              Header="_New Question Pack" 
+                              Icon="{fa:Icon Folderplus}"/>
+
+
+
+                <MenuItem x:Name="deleteQPMenu" 
+                        Header="_Delete Question Pack" 
+                              Icon="{fa:Icon Folderminus}"/>
+
+                <Separator/>
+
+                <MenuItem x:Name="importQuestionsMenu" 
+                        Header="_Import Questions"
+                          InputGestureText="Ctrl+I"
+                          Icon="{fa:Icon cloudarrowdown}"/>
+
+
+                <Separator/>
+
+                <MenuItem x:Name="exitMenu" 
+                          Header="E_xit"
+                          InputGestureText="Alt+F4"
+                          Icon="{fa:Icon dooropen}"
+                          Command="{Binding ExitCommand}"/>
+
+
+            </MenuItem>
+            <!--Edit Menu-->
+
+            <MenuItem Header="_Edit" >
+
+                <MenuItem x:Name="addQuestionMenu" 
+                        Header="_Add Question" 
+                          InputGestureText="Insert"
+                              Icon="{fa:Icon plus}"/>
+
+
+                <MenuItem x:Name="removeQuestionMenu"
+                        Header="_Remove Question"
+                          InputGestureText="Delete"
+                              Icon="{fa:Icon minus}"/>
+
+
+                <MenuItem x:Name="packOptionsMenu" 
+                        Header="Pack _Options" 
+                          InputGestureText="Ctrl+O"
+                      Icon="{fa:Icon toolbox}"/>
+
+
+            </MenuItem>
+
+
+            <!--View Menu-->
+
+            <MenuItem Header="_View" >
+
+                <MenuItem x:Name="playMenu" 
+                        Header="_Play" 
+                          InputGestureText="Ctrl+P"
+                              Icon="{fa:Icon play}"/>
+
+
+                <MenuItem x:Name="editMenu"
+                        Header="_Edit"
+                          InputGestureText="Ctrl+E"
+                              Icon="{fa:Icon gear}"/>
+
+
+                <MenuItem x:Name="fullscreenMenu" 
+                        Header="_Fullscreen" 
+                          InputGestureText="Alt+Enter"
+                              Icon="{fa:Icon expand}"
+                          Command="{Binding FullscreenCommand}"/>
+
+
+            </MenuItem>
+        </Menu>
+
+    </Grid>
+</UserControl>

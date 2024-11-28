@@ -1,0 +1,44 @@
+﻿<Window x:Class="SQL_Labb2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SQL_Labb2" xmlns:view="clr-namespace:SQL_Labb2.View"
+        mc:Ignorable="d"
+        Title="DJ's Book Store" Height="850" Width="1200" Icon="/Assets/Book.ico" Background="GhostWhite">
+    <Window.InputBindings>
+        <!--<KeyBinding Key="P" Modifiers="Ctrl" Command="{Binding SetPlayerViewCommand}"/>
+        <KeyBinding Key="E" Modifiers="Ctrl" Command="{Binding SetConfigViewCommand}"/>
+        <KeyBinding Key="Insert"  Command="{Binding ConfigurationViewModel.NewQuestionCommand}"/>
+        <KeyBinding Key="Delete"  Command="{Binding ConfigurationViewModel.DeleteQuestionCommand}"/>
+        <KeyBinding Key="O" Modifiers="Ctrl" Command="{Binding ConfigurationViewModel.PackOptionsCommand}"/>-->
+        <KeyBinding Key="F4" Modifiers="Alt" Command="{Binding ExitCommand}"/>
+        <KeyBinding Key="Return" Modifiers="Alt" Command="{Binding FullscreenCommand}"/>
+
+
+
+
+
+    </Window.InputBindings>
+    <Grid>
+
+
+
+        <!--Grid definitions-->
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <view:MenuView />
+
+        <view:StoreView Grid.Row="1"/>
+
+
+
+
+
+    </Grid>
+</Window>

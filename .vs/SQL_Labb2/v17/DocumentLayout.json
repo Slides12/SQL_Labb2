@@ -1,0 +1,68 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|c:\\users\\djoha\\source\\repos\\sql_labb2\\sql_labb2\\view\\storeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|solutionrelative:sql_labb2\\view\\storeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|c:\\users\\djoha\\source\\repos\\sql_labb2\\sql_labb2\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|solutionrelative:sql_labb2\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|c:\\users\\djoha\\source\\repos\\sql_labb2\\sql_labb2\\view\\menuview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|solutionrelative:sql_labb2\\view\\menuview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MenuView.xaml",
+              "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\View\\MenuView.xaml",
+              "RelativeDocumentMoniker": "SQL_Labb2\\View\\MenuView.xaml",
+              "ToolTip": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\View\\MenuView.xaml",
+              "RelativeToolTip": "SQL_Labb2\\View\\MenuView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-28T15:43:54.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "SQL_Labb2\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\MainWindow.xaml",
+              "RelativeToolTip": "SQL_Labb2\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-28T14:59:46.265Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StoreView.xaml",
+              "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\View\\StoreView.xaml",
+              "RelativeDocumentMoniker": "SQL_Labb2\\View\\StoreView.xaml",
+              "ToolTip": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\View\\StoreView.xaml",
+              "RelativeToolTip": "SQL_Labb2\\View\\StoreView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-28T14:59:19.332Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
