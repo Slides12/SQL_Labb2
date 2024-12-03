@@ -34,7 +34,9 @@
 
         <view:MenuView />
 
-        <view:StoreView Grid.Row="1"/>
+        <!--<view:StoreView Grid.Row="1"/>-->
+        <view:StoreShowcase Grid.Row="1"/>
+
 
 
 

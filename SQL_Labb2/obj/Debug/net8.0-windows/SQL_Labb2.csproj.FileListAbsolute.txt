@@ -53,3 +53,6 @@ C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\View\Me
 C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\View\MenuView.baml
 C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\View\StoreView.g.cs
 C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\View\StoreView.baml
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\SQL_Labb2.sourcelink.json
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\View\StoreShowcase.g.cs
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\View\StoreShowcase.baml
