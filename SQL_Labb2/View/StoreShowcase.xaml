@@ -28,8 +28,7 @@
                BorderThickness="0"
                Padding="10"
                Margin="10,5"
-                Width="80"
-                Command="{Binding StoreShowcaseViewModel.AddBookCommand}">
+                Width="80">
 
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
@@ -116,7 +115,7 @@
 
 
     
-        <ListBox ItemsSource="{Binding ActiveBook.Books}"
+        <ListBox ItemsSource="{Binding Books}"
           Grid.Row="1"
           Margin="5"
           BorderThickness="1"
@@ -130,9 +129,9 @@
                         <Image Source="/Assets/the hobbit.jpg"
                                Height="100"
                                Width="100"/>
-                        <Label Content="The Hobbit"
+                        <Label Content="{Binding Titel}"
                                 HorizontalAlignment="Center"/>
-                        <Label Content="129 Kr"
+                        <Label Content="{Binding Pris}"
                                 HorizontalAlignment="Center"/>
                     </StackPanel>
                 </DataTemplate>

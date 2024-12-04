@@ -14,8 +14,7 @@ class StoreShowcaseViewModel : ViewModelBase
     private readonly MainWindowViewModel mainWindowViewModel;
     public DelegateCommand AddBookCommand { get; }
 
-    public ObservableCollection<Book> Books { get; set; }
-
+    
 
     public StoreShowcaseViewModel(MainWindowViewModel? mainWindowViewModel)
     {
@@ -27,7 +26,7 @@ class StoreShowcaseViewModel : ViewModelBase
 
     private void AddBook(object obj)
     {
-        mainWindowViewModel.ActiveBook?.Books.Add(new Book());
+        mainWindowViewModel.Books.Add(new Böcker() { Pris = 1, Titel = "Hejsan"});
     }
 
 }
