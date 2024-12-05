@@ -28,7 +28,6 @@ internal class MainWindowViewModel : ViewModelBase
     {
         FullscreenCommand = new DelegateCommand(SetFullscreen);
         ExitCommand = new DelegateCommand(Exit);
-        db = new DanielJohanssonContext();
 
         Books = new ObservableCollection<Böcker>();
         StoreShowcaseViewModel = new StoreShowcaseViewModel(this);
@@ -39,6 +38,8 @@ internal class MainWindowViewModel : ViewModelBase
 
     public void PopulateList()
     {
+        db = new DanielJohanssonContext();
+
         var bookList = db.Böckers.ToList();
         foreach (var book in bookList) 
         {
