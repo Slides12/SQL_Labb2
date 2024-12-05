@@ -180,3 +180,17 @@ C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\runtime
 C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\Assets\Books\0.jpg
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\Assets\Books\9780261103573.jpg
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\Assets\Books\9780441013593.jpg
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\Assets\Books\9780575081574.jpg
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\Assets\Books\9780593201732.jpg
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\Assets\Books\9781529034523.jpg
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\Assets\Books\9781529034554.jpg
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\Assets\Books\9781840224306.jpg
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\Assets\Books\9781853261756.jpg
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\Assets\Books\9789113084930.jpg
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\Assets\Books\9780261103344.jpg
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\SQL_Labb2_Content.g.cs
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\View\BookInfoView.g.cs
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\View\BookInfoView.baml

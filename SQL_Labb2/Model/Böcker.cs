@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace SQL_Labb2.Model;
 
@@ -22,4 +23,23 @@ public partial class Böcker
     public virtual ICollection<OrderInfo> OrderInfos { get; set; } = new List<OrderInfo>();
 
     public virtual ICollection<Författare> Författares { get; set; } = new List<Författare>();
+
+
+    public string Omslag
+    {
+        get
+        {
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Assets", "Books", $"{Isbn}.jpg");
+
+            if (File.Exists(filePath))
+            {
+                return filePath;
+            }
+            else
+            {
+                return $"/Assets/Books/0.jpg";
+            }
+        }
+    }
+
 }

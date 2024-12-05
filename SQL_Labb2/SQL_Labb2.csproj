@@ -12,7 +12,16 @@
     <None Remove="Assets\Adlibris.png" />
     <None Remove="Assets\Amazon.jpeg" />
     <None Remove="Assets\Book.ico" />
-    <None Remove="Assets\SciFi.png" />
+    <None Remove="Assets\Books\0.jpg" />
+    <None Remove="Assets\Books\9780261103573.jpg" />
+    <None Remove="Assets\Books\9780441013593.jpg" />
+    <None Remove="Assets\Books\9780575081574.jpg" />
+    <None Remove="Assets\Books\9780593201732.jpg" />
+    <None Remove="Assets\Books\9781529034523.jpg" />
+    <None Remove="Assets\Books\9781529034554.jpg" />
+    <None Remove="Assets\Books\9781840224306.jpg" />
+    <None Remove="Assets\Books\9781853261756.jpg" />
+    <None Remove="Assets\Books\9789113084930.jpg" />
     <None Remove="Assets\The Hobbit.jpg" />
   </ItemGroup>
 
@@ -35,12 +44,46 @@
     <Resource Include="Assets\Book.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Assets\Books\0.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Books\9780261103573.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Books\9780441013593.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Books\9780575081574.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Books\9780593201732.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Books\9781529034523.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Books\9781529034554.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Books\9781840224306.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Books\9781853261756.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Books\9789113084930.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Assets\SciFi.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Assets\The Hobbit.jpg">
+    <Content Include="Assets\Books\9780261103344.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Converter\" />
   </ItemGroup>
 
 </Project>

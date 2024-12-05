@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using Microsoft.EntityFrameworkCore;
 using SQL_Labb2.Command;
 using SQL_Labb2.Model;
 using static System.Reflection.Metadata.BlobBuilder;
@@ -16,7 +18,6 @@ internal class MainWindowViewModel : ViewModelBase
 {
     public StoreViewModel MenuViewModel { get; }
     public StoreShowcaseViewModel StoreShowcaseViewModel { get; }
-    public ObservableCollection<Böcker> Books { get; set; }
     public DanielJohanssonContext db { get; set; }
 
     public DelegateCommand FullscreenCommand { get; }
@@ -26,26 +27,21 @@ internal class MainWindowViewModel : ViewModelBase
 
     public MainWindowViewModel()
     {
+        // Delegates
         FullscreenCommand = new DelegateCommand(SetFullscreen);
         ExitCommand = new DelegateCommand(Exit);
 
-        Books = new ObservableCollection<Böcker>();
+        
+        
+        
+        // ViewModels
         StoreShowcaseViewModel = new StoreShowcaseViewModel(this);
         MenuViewModel = new StoreViewModel(this);
-        PopulateList();
 
+        
     }
 
-    public void PopulateList()
-    {
-        db = new DanielJohanssonContext();
-
-        var bookList = db.Böckers.ToList();
-        foreach (var book in bookList) 
-        {
-            Books.Add(book);
-        }
-    }
+  
 
     private void SetFullscreen(object obj)
     {

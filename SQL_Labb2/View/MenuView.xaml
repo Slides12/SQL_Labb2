@@ -11,7 +11,7 @@
         <!--Dockpanel-->
 
 
-        <Menu Background="SlateGray">
+        <Menu Background="LightGray">
             <!--File Menu-->
 
             <MenuItem Header="_File" >

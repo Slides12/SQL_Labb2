@@ -3,139 +3,139 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              xmlns:local="clr-namespace:SQL_Labb2.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <!--Hide button hover-->
+    <UserControl.Resources>
+        <Style x:Key="MyButtonStyle" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                                BorderThickness="1"
+                                Padding="4,2" 
+                                BorderBrush="LightGray" 
+                                CornerRadius="5" 
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    
+    
     <Grid>
             <Grid.RowDefinitions >
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
 
 
-            
+        <StackPanel HorizontalAlignment="Center"
+         Orientation="Horizontal"
+         Grid.Row="1">
 
-
-        <StackPanel Orientation="Horizontal"
-                    Grid.ColumnSpan="6"
-                    HorizontalAlignment="Center">
-            <Button  
-               Content="Sci-Fi"
-               FontFamily="Century Gothic"
-               Foreground="white"
-               Background="Black"
-               BorderThickness="0"
-               Padding="10"
-               Margin="10,5"
-                Width="80">
-
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="7"/>
-                    </Style>
-                </Button.Resources>
-
-            </Button>
-
-            <Button  
-               Content="Fantasy"
-               FontFamily="Century Gothic"
-               Foreground="white"
-               Background="Black"
-               BorderThickness="0"
-               Padding="10"
-               Margin="10,5"
-                Width="80">
-
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="7"/>
-                    </Style>
-                </Button.Resources>
-
-            </Button>
-
-
-            <Button  
-               Content="Skönlitteratur"
-               FontFamily="Century Gothic"
-               Foreground="white"
-               Background="Black"
-               BorderThickness="0"
-               Padding="10"
-               Margin="10,5"
-                Width="80">
-
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="7"/>
-                    </Style>
-                </Button.Resources>
-
-            </Button>
-
-
-            <Button  
-               Content="Rysare"
-               FontFamily="Century Gothic"
-               Foreground="white"
-               Background="Black"
-               BorderThickness="0"
-               Padding="10"
-               Margin="10,5"
-                Width="80">
-
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="7"/>
-                    </Style>
-                </Button.Resources>
-
-            </Button>
-            <Button  
-               Content="Thriller"
-               FontFamily="Century Gothic"
-               Foreground="white"
-               Background="Black"
-               BorderThickness="0"
-               Padding="10"
-               Margin="10,5"
-                Width="80">
-
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="7"/>
-                    </Style>
-                </Button.Resources>
-
-            </Button>
+            <Button Height="18"
+             Width="18"
+             HorizontalAlignment="Right"
+             VerticalAlignment="Center"
+             Grid.Row="1"
+             Content="{fa:Icon plus}"
+             Command="{Binding }"/>
+            <Label Content=" Add A Book." FontSize="18"/>
 
         </StackPanel>
 
+            <!--GEnre knappar-->
+        <ListBox ItemsSource="{Binding StoreShowcaseViewModel.GenreButtons}"
+                  Grid.Row="0"
+                  Margin="5"
+                  BorderThickness="1"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  HorizontalAlignment="Center"
+                 Background="LightGray">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding Content}"
+                             FontFamily="Century Gothic"
+                             Foreground="White"
+                             Background="Black"
+                             BorderThickness="0"
+                             Padding="10"
+                             Margin="10,5"
+                             Width="100"
+                             Height="40"
+                             Command="{Binding Command}"
+                             CommandParameter="{Binding CommandParameter}"
+                             Style="{StaticResource MyButtonStyle}">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="7"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
 
-    
-        <ListBox ItemsSource="{Binding Books}"
-          Grid.Row="1"
-          Margin="5"
-          BorderThickness="1"
-          Grid.RowSpan="9"
+        <!--Böcker-->
+        <ListBox ItemsSource="{Binding StoreShowcaseViewModel.Books}"
+                  Grid.Row="2"
+                  Margin="15"
+                  BorderThickness="1"
+                  Grid.RowSpan="9"
                  Width="auto"
-                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 Padding="15"
+                 SelectedItem="{Binding StoreShowcaseViewModel.ActiveBook}">
 
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Grid.Row="1" Grid.Column="1" >
-                        <Image Source="/Assets/the hobbit.jpg"
-                               Height="100"
-                               Width="100"/>
-                        <Label Content="{Binding Titel}"
-                                HorizontalAlignment="Center"/>
-                        <Label Content="{Binding Pris}"
-                                HorizontalAlignment="Center"/>
-                    </StackPanel>
+                   
+
+                        <Button VerticalAlignment="Top" Grid.Row="0" Width="140" Height="200">
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                                <Image Source="{Binding Omslag}" Height="115" Width="115" VerticalAlignment="Top"/>
+                                <TextBlock Text="{Binding Titel}"
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"
+                               Padding="5"
+                               FontFamily="Book Antiqua"
+                               FontSize="15"
+                               TextWrapping="Wrap"/>
+                                <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontFamily="Garamond"
+                               FontSize="15"
+                               FontWeight="Bold">
+                        <Run Text="{Binding Pris}" />
+                        <Run Text=" Kr" />
+                                </TextBlock>
+                            </StackPanel>
+                        </Button>
+
                 </DataTemplate>
             </ListBox.ItemTemplate>
+
 
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
