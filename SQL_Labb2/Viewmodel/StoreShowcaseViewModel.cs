@@ -18,7 +18,6 @@ class StoreShowcaseViewModel : ViewModelBase
     private readonly MainWindowViewModel mainWindowViewModel;
     public DelegateCommand AddBookCommand { get; }
     public DelegateCommand SetActiveBookCommand { get; }
-    public DanielJohanssonContext db { get; set; }
     public ObservableCollection<Button> GenreButtons { get; set; }
     public ObservableCollection<Böcker> Books { get; set; }
 
@@ -31,6 +30,35 @@ class StoreShowcaseViewModel : ViewModelBase
         set
         {
             _activeBook = value;
+            if(ActiveBook != null) 
+            { 
+                SetBookDescription();
+                SetCurrentStorage();
+            }
+            RaiseProperyChanged();
+        }
+    }
+
+    private string _bookInfo;
+
+    public string BookInfo
+    {
+        get => _bookInfo;
+        set
+        {
+            _bookInfo = value;
+            RaiseProperyChanged();
+        }
+    }
+
+    private int? _inStorage;
+
+    public int? InStorage
+    {
+        get => _inStorage;
+        set
+        {
+            _inStorage = value;
             RaiseProperyChanged();
         }
     }
@@ -57,6 +85,24 @@ class StoreShowcaseViewModel : ViewModelBase
         Books.Add(new Böcker() { Pris = 1, Titel = "Hejsan"});
     }
 
+    public void SetBookDescription()
+    {
+        using var db = new DanielJohanssonContext();
+
+        var bookList = db.Böckers.Include(book => book.IsbnNavigation).Where(bookInfo => bookInfo.Isbn == ActiveBook.Isbn).ToList();
+
+        BookInfo = bookList[0].IsbnNavigation.Beskrivning.ToString();
+    }
+
+    public void SetCurrentStorage()
+    {
+        using var db = new DanielJohanssonContext();
+
+        var bookList = db.OrderInfos.Where(bookInfo => bookInfo.Isbn == ActiveBook.Isbn).ToList();
+
+        InStorage = bookList[0].Antal;
+    }
+
     private void SetActiveBook(object obj)
     {
         if (obj is Böcker selectedBook)
@@ -68,7 +114,7 @@ class StoreShowcaseViewModel : ViewModelBase
 
     public void PopulateBookList()
     {
-        db = new DanielJohanssonContext();
+        using var db = new DanielJohanssonContext();
 
         var bookList = db.Böckers.ToList();
         foreach (var book in bookList)
@@ -79,7 +125,7 @@ class StoreShowcaseViewModel : ViewModelBase
 
     public void PopulateGenreButtonList()
     {
-        db = new DanielJohanssonContext();
+        using var db = new DanielJohanssonContext();
 
         GenreButtons.Add(new Button
         {
@@ -106,6 +152,7 @@ class StoreShowcaseViewModel : ViewModelBase
 
     private void ShowAllBooks()
     {
+        using var db = new DanielJohanssonContext();
         Books.Clear();
         var allBooks = db.Böckers.ToList();
         foreach (var book in allBooks)
@@ -117,6 +164,7 @@ class StoreShowcaseViewModel : ViewModelBase
 
     private void FilterBooksByGenre(string genre)
     {
+        using var db = new DanielJohanssonContext();
         Books.Clear();
         var filteredBooks = db.Böckers
                               .Include(b => b.IsbnNavigation)

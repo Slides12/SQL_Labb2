@@ -8,19 +8,42 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
+            <RowDefinition Height="60" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="100" />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
 
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="3">
+            <TextBlock Text="{Binding StoreShowcaseViewModel.ActiveBook.Titel}"
+                       FontSize="40"/>
+        </StackPanel>
+        
         <TextBlock Grid.Row="1" 
                    Grid.Column="1"
-                   Text="{Binding StoreShowcaseViewModel.ActiveBook}"/>
+                   Grid.ColumnSpan="2"
+                   Grid.RowSpan="4"
+                   Text="{Binding StoreShowcaseViewModel.BookInfo}"
+                   HorizontalAlignment="Center"
+                   TextWrapping="Wrap"
+                   FontSize="18"
+                   Margin="20"/>
+        <Image Source="{Binding StoreShowcaseViewModel.ActiveBook.Omslag}" 
+               Grid.Column="3"
+               Grid.Row="1"
+               Grid.RowSpan="4"
+               Height="230"
+               Width="200"/>
+
+        <TextBlock Text="{Binding StoreShowcaseViewModel.InStorage}"
+                   Grid.Column="3"
+                   Grid.Row="0"/>
     </Grid>
 </UserControl>

@@ -110,10 +110,14 @@
 
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                   
 
-                        <Button VerticalAlignment="Top" Grid.Row="0" Width="140" Height="200">
-                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+
+                    <Button VerticalAlignment="Top"
+        Width="140"
+        Height="200"
+        IsHitTestVisible="False"
+        Focusable="False">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                                 <Image Source="{Binding Omslag}" Height="115" Width="115" VerticalAlignment="Top"/>
                                 <TextBlock Text="{Binding Titel}"
                                HorizontalAlignment="Center" 

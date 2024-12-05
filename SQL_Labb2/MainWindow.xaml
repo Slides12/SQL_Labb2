@@ -29,14 +29,15 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="300"/>
         </Grid.RowDefinitions>
 
 
         <view:MenuView />
 
         <!--<view:StoreView Grid.Row="1"/>-->
-        <!--<view:StoreShowcase Grid.Row="1"/>-->
-        <view:BookInfoView Grid.Row="1"/>
+        <view:StoreShowcase Grid.Row="1"/>
+        <view:BookInfoView Grid.Row="2"/>
 
 
 
