@@ -18,6 +18,7 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/books/9781840224306.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/books/9781853261756.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/books/9789113084930.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/leftarrow.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/books/9780261103344.jpg")]
 
 

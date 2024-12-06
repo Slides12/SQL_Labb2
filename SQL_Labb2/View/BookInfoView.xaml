@@ -41,9 +41,15 @@
                Grid.RowSpan="4"
                Height="230"
                Width="200"/>
+        <StackPanel HorizontalAlignment="Right"  Grid.Column="3">
+        <TextBlock Text="{Binding StoreShowcaseViewModel.InStorage, StringFormat={}{0} Left in Stock}"
+                   FontSize="25"
+                   HorizontalAlignment="Right"/>
 
-        <TextBlock Text="{Binding StoreShowcaseViewModel.InStorage}"
-                   Grid.Column="3"
-                   Grid.Row="0"/>
+            <TextBlock Text="{Binding StoreShowcaseViewModel.ActiveBook.Språk}"
+                       FontSize="20"
+                       HorizontalAlignment="Right"/>
+
+        </StackPanel>
     </Grid>
 </UserControl>

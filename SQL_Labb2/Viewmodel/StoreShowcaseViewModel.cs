@@ -34,10 +34,14 @@ class StoreShowcaseViewModel : ViewModelBase
             { 
                 SetBookDescription();
                 SetCurrentStorage();
+                mainWindowViewModel.SetBookInfoViewCommand.Execute(this);
             }
             RaiseProperyChanged();
         }
     }
+
+
+
 
     private string _bookInfo;
 
@@ -98,7 +102,7 @@ class StoreShowcaseViewModel : ViewModelBase
     {
         using var db = new DanielJohanssonContext();
 
-        var bookList = db.OrderInfos.Where(bookInfo => bookInfo.Isbn == ActiveBook.Isbn).ToList();
+        var bookList = db.LagerSaldos.Where(bookInfo => bookInfo.Isbn == ActiveBook.Isbn && bookInfo.ButikId == mainWindowViewModel.StoreId).ToList();
 
         InStorage = bookList[0].Antal;
     }
@@ -159,6 +163,7 @@ class StoreShowcaseViewModel : ViewModelBase
         {
             Books.Add(book);
         }
+        mainWindowViewModel.SetStoreShowcaseCommand.Execute(this);
     }
 
 
@@ -175,6 +180,7 @@ class StoreShowcaseViewModel : ViewModelBase
         {
             Books.Add(book);
         }
+        mainWindowViewModel.SetStoreShowcaseCommand.Execute(this);
     }
 
 

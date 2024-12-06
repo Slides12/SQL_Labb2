@@ -35,9 +35,9 @@
 
         <view:MenuView />
 
-        <!--<view:StoreView Grid.Row="1"/>-->
-        <view:StoreShowcase Grid.Row="1"/>
-        <view:BookInfoView Grid.Row="2"/>
+        <view:StoreView Grid.Row="1" Visibility="{Binding StoreViewVisibility}" Grid.RowSpan="2"/>
+        <view:StoreShowcase Grid.Row="1" Visibility="{Binding StoreShowcaseVisibility}" Grid.RowSpan="{Binding StoreShowcaseRowSpan}"/>
+        <view:BookInfoView Grid.Row="2" Visibility="{Binding BookInfoViewVisibility}"/>
 
 
 

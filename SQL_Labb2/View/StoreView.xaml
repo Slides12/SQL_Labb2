@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SQL_Labb2.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="LightSlateGray">
+             d:DesignHeight="450" d:DesignWidth="800" Background="LightGray">
     <!--Hide button hover-->
     <UserControl.Resources>
         <Style x:Key="MyButtonStyle" TargetType="Button">
@@ -50,62 +50,71 @@
                VerticalAlignment="Bottom" 
                HorizontalAlignment="Center"
                FontWeight="Bold"
-               TextDecorations="Underline"/>
+               TextDecorations="Underline"
+                   Margin="40"/>
 
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Left">
             <TextBlock Width="200"/>
 
-            <Button  Height="150"
+            <Button  Name="B2"
+                     Height="150"
                      Width="300"
                      Background="white"
-                     Style="{StaticResource MyButtonStyle}">
+                     Style="{StaticResource MyButtonStyle}"
+                     Command="{Binding SetStoreShowcaseCommand}"
+                     CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
                 <Image Source="/Assets/Amazon.jpeg"
                        VerticalAlignment="Center"/>
             </Button>
-            <TextBlock Text="Fri frakt på miljontals varor. Få det bästa av shopping och underhållning med Prime. Njut av låga priser och bra erbjudanden på det största urvalet av böcker." 
+            <TextBlock Text="Free shipping on millions of items. Get the best of shopping and entertainment with Prime. Enjoy low prices and great deals on the largest selection of books." 
                         Width="400"
                         TextWrapping="Wrap"
                         Padding="5"
                        FontSize="18"
                        VerticalAlignment="Center"
-                       Foreground="White"/>
+                       Foreground="black"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="left">
             <TextBlock Width="200"/>
-            <Button  Height="150"
+            <Button  Name="B1"
+                     Height="150"
                      Width="300"
                      Background="white"
                      Style="{StaticResource MyButtonStyle}"
-                     >
+                     Command="{Binding SetStoreShowcaseCommand}"
+                     CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
                 <Image Source="/Assets/Adlibris.png"
                        VerticalAlignment="Center"/>
             </Button>
-            <TextBlock Text="Adlibris är Nordens största bokhandel och erbjuder över 13 miljoner boktitlar med det senaste inom spel, pyssel, garn och allt som hör en modern bokhandel till." 
+            <TextBlock Text="Adlibris is the Nordic region's largest bookstore and offers over 13 million book titles with the latest in games, crafts, yarn and everything that belongs to a modern bookstore." 
                         Width="400"
                          TextWrapping="Wrap"
                          Padding="5"
                         FontSize="18"
                         VerticalAlignment="Center"
-                       Foreground="White"/>
+                       Foreground="black"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="4" HorizontalAlignment="left">
             <TextBlock Width="200"/>
-            <Button  Height="150"
+            <Button  Name="B3"
+                     Height="150"
                      Width="300"
                      Background="#1a1b1c"
-                     Style="{StaticResource MyButtonStyle}">
+                     Style="{StaticResource MyButtonStyle}"
+                     Command="{Binding SetStoreShowcaseCommand}"
+                     CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
                 <Image Source="/Assets/SciFi.png"
                        VerticalAlignment="Center"/>
             </Button>
-            <TextBlock Text="Science Fiction Bokhandeln säljer böcker, tecknade serier, spel och prylar med anknytning till science fiction, fantasy och skräck." 
+            <TextBlock Text="The Science Fiction bookstore sells books, cartoons, games and gadgets related to science fiction, fantasy and horror." 
                        Width="400"
                          TextWrapping="Wrap"
                          Padding="5"
                         FontSize="18"
                         VerticalAlignment="Center"
-                       Foreground="White"/>
+                       Foreground="black"/>
         </StackPanel>
     </Grid>
 </UserControl>
