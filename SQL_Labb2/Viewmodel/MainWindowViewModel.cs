@@ -20,6 +20,7 @@ internal class MainWindowViewModel : ViewModelBase
 {
     public StoreViewModel MenuViewModel { get; }
     public StoreShowcaseViewModel StoreShowcaseViewModel { get; }
+    public AdminViewModel AdminViewModel { get; }
     public DanielJohanssonContext db { get; set; }
 
     public DelegateCommand FullscreenCommand { get; }
@@ -27,6 +28,7 @@ internal class MainWindowViewModel : ViewModelBase
     public DelegateCommand SetStoreViewCommand { get; }
     public DelegateCommand SetStoreShowcaseCommand { get; }
     public DelegateCommand SetBookInfoViewCommand { get; }
+    public DelegateCommand SetAdminViewCommand { get; }
 
 
     private string _storeNumber;
@@ -51,7 +53,18 @@ internal class MainWindowViewModel : ViewModelBase
         set
         {
             _storeId = value;
-            RaiseProperyChanged("StoreNumber");
+            if(_storeId != null)
+            {
+                if (_storeId == 4)
+                {
+                    StoreShowcaseViewModel.PopulateAdminBookListAsync();
+                }
+                else
+                {
+                    StoreShowcaseViewModel.PopulateBookListAsync();
+                }
+            }
+            RaiseProperyChanged("StoreId");
         }
     }
 
@@ -115,6 +128,19 @@ internal class MainWindowViewModel : ViewModelBase
         }
     }
 
+    private Visibility _adminViewVisibility;
+    public Visibility AdminViewVisibility
+    {
+        get => _adminViewVisibility;
+        set
+        {
+            _adminViewVisibility = value;
+            StoreShowcaseRowSpan = _adminViewVisibility == Visibility.Visible ? 1 : 2;
+            RaiseProperyChanged(nameof(AdminViewVisibility));
+        }
+    }
+
+
     private int _storeShowcaseRowSpan = 1;
     public int StoreShowcaseRowSpan
     {
@@ -135,18 +161,21 @@ internal class MainWindowViewModel : ViewModelBase
         SetStoreViewCommand = new DelegateCommand(SetStoreView);
         SetStoreShowcaseCommand = new DelegateCommand(SetStoreShowcase);
         SetBookInfoViewCommand = new DelegateCommand(SetBookInfoView);
+        SetAdminViewCommand = new DelegateCommand(SetAdminView);
 
         // Visibility
         StoreViewVisibility = Visibility.Visible;
         StoreShowcaseVisibility = Visibility.Hidden;
         BookInfoViewVisibility = Visibility.Hidden;
+        AdminViewVisibility = Visibility.Hidden;
 
 
         // ViewModels
         StoreShowcaseViewModel = new StoreShowcaseViewModel(this);
         MenuViewModel = new StoreViewModel(this);
+        AdminViewModel = new AdminViewModel(this);
 
-        
+
     }
 
     private void SetStorePic(string store)
@@ -156,6 +185,7 @@ internal class MainWindowViewModel : ViewModelBase
             "B1" => new BitmapImage(new Uri("/Assets/Adlibris.png", UriKind.Relative)),
             "B2" => new BitmapImage(new Uri("/Assets/Amazon.jpeg", UriKind.Relative)),
             "B3" => new BitmapImage(new Uri("/Assets/SciFi.png", UriKind.Relative)),
+            "B4" => new BitmapImage(new Uri("/Assets/Admin.png", UriKind.Relative)),
             _ => null  
         };
     }
@@ -174,6 +204,9 @@ internal class MainWindowViewModel : ViewModelBase
             case "B3":
                 StoreId = 3;
                 break;
+            case "B4":
+                StoreId = 4;
+                break;
         }
     }
 
@@ -183,8 +216,9 @@ internal class MainWindowViewModel : ViewModelBase
         StoreViewVisibility = Visibility.Visible;
         StoreShowcaseVisibility = Visibility.Hidden;
         BookInfoViewVisibility = Visibility.Hidden;
+        AdminViewVisibility = Visibility.Hidden;
 
-        
+
     }
 
     private void SetStoreShowcase(object obj)
@@ -192,6 +226,8 @@ internal class MainWindowViewModel : ViewModelBase
         StoreViewVisibility = Visibility.Hidden;
         StoreShowcaseVisibility = Visibility.Visible;
         BookInfoViewVisibility = Visibility.Collapsed;
+        AdminViewVisibility = Visibility.Hidden;
+
         if (obj is Button button)
         {
             StoreNumber = button.Name;
@@ -204,6 +240,14 @@ internal class MainWindowViewModel : ViewModelBase
         StoreViewVisibility = Visibility.Hidden;
         StoreShowcaseVisibility = Visibility.Visible;
         BookInfoViewVisibility = Visibility.Visible;
+    }
+
+
+    private void SetAdminView(object obj)
+    {
+        StoreViewVisibility = Visibility.Hidden;
+        StoreShowcaseVisibility = Visibility.Visible;
+        AdminViewVisibility = Visibility.Visible;
     }
 
     private void SetFullscreen(object obj)

@@ -31,10 +31,19 @@ class StoreShowcaseViewModel : ViewModelBase
         {
             _activeBook = value;
             if(ActiveBook != null) 
-            { 
-                SetBookDescription();
-                SetCurrentStorage();
-                mainWindowViewModel.SetBookInfoViewCommand.Execute(this);
+            {
+                SetBookAuthor();
+                if (mainWindowViewModel.StoreId != 4)
+                {
+                    SetBookDescription();
+                    SetCurrentStorage();
+                    mainWindowViewModel.SetBookInfoViewCommand.Execute(this);
+                }
+                else
+                {
+                    mainWindowViewModel.SetAdminViewCommand.Execute(this);
+
+                }
             }
             RaiseProperyChanged();
         }
@@ -51,6 +60,18 @@ class StoreShowcaseViewModel : ViewModelBase
         set
         {
             _bookInfo = value;
+            RaiseProperyChanged();
+        }
+    }
+
+    private string _bookAuthor;
+
+    public string BookAuthor
+    {
+        get => _bookAuthor;
+        set
+        {
+            _bookAuthor = value;
             RaiseProperyChanged();
         }
     }
@@ -80,7 +101,6 @@ class StoreShowcaseViewModel : ViewModelBase
         Books = new ObservableCollection<Böcker>();
 
         // Methods
-        PopulateBookList();
         PopulateGenreButtonList();
     }
 
@@ -93,16 +113,38 @@ class StoreShowcaseViewModel : ViewModelBase
     {
         using var db = new DanielJohanssonContext();
 
-        var bookList = db.Böckers.Include(book => book.IsbnNavigation).Where(bookInfo => bookInfo.Isbn == ActiveBook.Isbn).ToList();
+        var bookList = db.Böckers
+            .Include(book => book.IsbnNavigation)
+            .Where(bookInfo => bookInfo.Isbn == ActiveBook.Isbn)
+            .ToList();
 
         BookInfo = bookList[0].IsbnNavigation.Beskrivning.ToString();
+    }
+
+    public void SetBookAuthor()
+    {
+        using var db = new DanielJohanssonContext();
+
+        var bookList = db.Böckers
+            .Include(book => book.Författares)
+            .Where(bookInfo => bookInfo.Isbn == ActiveBook.Isbn)
+            .ToList();
+
+        if(bookList.Count > 0)
+        {
+            var authors = bookList[0].Författares;
+            BookAuthor =  string.Join(" ", authors.Select(author => $"{author.Förnamn} {author.Efternamn}"));
+        }
+
     }
 
     public void SetCurrentStorage()
     {
         using var db = new DanielJohanssonContext();
 
-        var bookList = db.LagerSaldos.Where(bookInfo => bookInfo.Isbn == ActiveBook.Isbn && bookInfo.ButikId == mainWindowViewModel.StoreId).ToList();
+        var bookList = db.LagerSaldos
+            .Where(bookInfo => bookInfo.Isbn == ActiveBook.Isbn && bookInfo.ButikId == mainWindowViewModel.StoreId)
+            .ToList();
 
         InStorage = bookList[0].Antal;
     }
@@ -116,11 +158,29 @@ class StoreShowcaseViewModel : ViewModelBase
         }
     }
 
-    public void PopulateBookList()
+
+    public async Task PopulateBookListAsync()
     {
         using var db = new DanielJohanssonContext();
 
-        var bookList = db.Böckers.ToList();
+        var bookList = await db.Böckers
+            .Include(book => book.LagerSaldos)
+            .Where(book => book.LagerSaldos.Any(saldo => saldo.ButikId == mainWindowViewModel.StoreId && saldo.Antal > 0))
+            .ToListAsync();
+        Books.Clear();
+        foreach (var book in bookList)
+        {
+            Books.Add(book);
+        }
+    }
+
+    public async Task PopulateAdminBookListAsync()
+    {
+        using var db = new DanielJohanssonContext();
+
+        var bookList = await db.Böckers.ToListAsync();
+
+        Books.Clear();
         foreach (var book in bookList)
         {
             Books.Add(book);

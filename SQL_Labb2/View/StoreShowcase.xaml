@@ -39,26 +39,11 @@
     <Grid>
             <Grid.RowDefinitions >
                 <RowDefinition Height="auto"/>
-            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
 
-
-        <StackPanel HorizontalAlignment="Center"
-         Orientation="Horizontal"
-         Grid.Row="1">
-
-            <Button Height="18"
-             Width="18"
-             HorizontalAlignment="Right"
-             VerticalAlignment="Center"
-             Grid.Row="1"
-             Content="{fa:Icon plus}"
-             Command="{Binding }"/>
-            <Label Content=" Add A Book." FontSize="18"/>
-
-        </StackPanel>
+       
 
         <Grid >
             <Grid.ColumnDefinitions>

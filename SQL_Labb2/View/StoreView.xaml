@@ -115,6 +115,18 @@
                         FontSize="18"
                         VerticalAlignment="Center"
                        Foreground="black"/>
+
         </StackPanel>
+        <Button Name="B4"
+                Content="Admin" 
+                Grid.Row="5"
+                Height="50"
+                Width="120"
+                FontSize="30"
+                Background="white"
+                Style="{StaticResource MyButtonStyle}"
+                Command="{Binding SetStoreShowcaseCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}"/>
+
     </Grid>
 </UserControl>

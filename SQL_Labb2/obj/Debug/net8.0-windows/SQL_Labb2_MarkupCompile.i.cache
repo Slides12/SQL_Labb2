@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\App.xaml
-51150802750
+61759789698
 12303289686
-28-1424120271
+30353875826
 238-1779499535
-MainWindow.xaml;View\BookInfoView.xaml;View\MenuView.xaml;View\StoreShowcase.xaml;View\StoreView.xaml;
+MainWindow.xaml;View\AdminView.xaml;View\BookInfoView.xaml;View\MenuView.xaml;View\StoreShowcase.xaml;View\StoreView.xaml;
 
 False
 

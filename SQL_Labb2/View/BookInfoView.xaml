@@ -21,20 +21,28 @@
             <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="1" Grid.ColumnSpan="3">
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" >
             <TextBlock Text="{Binding StoreShowcaseViewModel.ActiveBook.Titel}"
                        FontSize="40"/>
+            <TextBlock Text="{Binding StoreShowcaseViewModel.BookAuthor}" 
+                       FontSize="20" 
+                       VerticalAlignment="Center"
+                       Margin="15"
+                       FontFamily="Cambria"/>
         </StackPanel>
-        
-        <TextBlock Grid.Row="1" 
-                   Grid.Column="1"
-                   Grid.ColumnSpan="2"
-                   Grid.RowSpan="4"
-                   Text="{Binding StoreShowcaseViewModel.BookInfo}"
-                   HorizontalAlignment="Center"
-                   TextWrapping="Wrap"
-                   FontSize="18"
-                   Margin="20"/>
+
+        <ScrollViewer Grid.Row="1"
+              Grid.Column="1"
+              Grid.ColumnSpan="2"
+              Grid.RowSpan="4"
+              HorizontalAlignment="Center"
+              VerticalScrollBarVisibility="Auto"
+              HorizontalScrollBarVisibility="Disabled"
+              Margin="20">
+            <TextBlock Text="{Binding StoreShowcaseViewModel.BookInfo}"
+               TextWrapping="Wrap"
+               FontSize="18" />
+        </ScrollViewer>
         <Image Source="{Binding StoreShowcaseViewModel.ActiveBook.Omslag}" 
                Grid.Column="3"
                Grid.Row="1"
