@@ -41,16 +41,30 @@
                     Margin="5"
                      Command="{Binding AdminViewModel.RemoveBookCommand}"/>
         </StackPanel>
+            <StackPanel>
 
-            <ComboBox Height="30"
+                <Label Content="Choose which store to add/remove." FontWeight="Bold"/>
+
+                <ComboBox Height="30"
                       VerticalAlignment="Center"
                       Width="150"
                       HorizontalContentAlignment="Center"
+                      VerticalContentAlignment="Center"
                       SelectedIndex="{Binding AdminViewModel.SelectedIndex, Mode=TwoWay}">
                 <ComboBoxItem Content="Adlibris" HorizontalAlignment="Center"/>
                 <ComboBoxItem Content="Amazon" HorizontalAlignment="Center"/>
                 <ComboBoxItem Content="Sci-fi Bookstore" HorizontalAlignment="Center"/>
             </ComboBox>
+
+            </StackPanel>
+
+            <StackPanel>
+
+                <Label Content="How many do you want to add?" FontWeight="Bold"/>
+
+                <TextBox Text="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="18" Width="50"/>
+
+            </StackPanel>
 
 
         </StackPanel>

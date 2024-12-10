@@ -49,22 +49,84 @@ internal class AdminViewModel : ViewModelBase
 
     private void AddBook(object obj)
     {
-        Debug.WriteLine($"Adding a book to store: {SelectedIndex+1}");
+
         using var db = new DanielJohanssonContext();
 
-        var bookAtStore = db.Böckers
-            .Include(book => book.LagerSaldos)
-            .Where(
-            book => book.Isbn == mainWindowViewModel.StoreShowcaseViewModel.ActiveBook.Isbn
-            && book.LagerSaldos.Any(saldo => saldo.ButikId == SelectedIndex)
-            ).ToString();
+        var book = db.Böckers
+            .FirstOrDefault(b => b.Isbn == mainWindowViewModel.StoreShowcaseViewModel.ActiveBook.Isbn);
+
+        if (book == null)
+        {
+            Debug.WriteLine("The active book could not be found in db.");
+            return;
+        }
+
+        bool bookExistsInStore = db.LagerSaldos
+            .Any(l => l.ButikId == SelectedIndex + 1 && l.Isbn == book.Isbn);
+
+        if (!bookExistsInStore)
+        {
+            var newLagerSaldo = new LagerSaldo
+            {
+                ButikId = SelectedIndex + 1,
+                Isbn = book.Isbn,
+                Antal = 1
+            };
+
+            var butik = db.Butikers.Find(SelectedIndex + 1);
+            if (butik == null)
+            {
+                Debug.WriteLine("Store could not be found.");
+                return;
+            }
+
+            var bookEntity = db.Böckers.Find(book.Isbn);
+            if (bookEntity == null)
+            {
+                Debug.WriteLine("Book not be found in db.");
+                return;
+            }
+
+            db.Attach(butik);  
+            db.Attach(bookEntity); 
+
+            db.LagerSaldos.Add(newLagerSaldo);
+            db.SaveChanges(); 
+
+        }
+        else
+        {
+            Debug.WriteLine("Could not add book to store.");
+        }
 
     }
+
+
+
 
     private void RemoveBook(object obj)
     {
-        Debug.WriteLine($"Removing a book from store: {SelectedIndex+1}");
+
+        using var db = new DanielJohanssonContext();
+
+        var existingLagerSaldo = db.LagerSaldos
+            .FirstOrDefault(lagerSaldo =>
+                lagerSaldo.ButikId == SelectedIndex + 1 &&
+                lagerSaldo.Isbn == mainWindowViewModel.StoreShowcaseViewModel.ActiveBook.Isbn);
+
+        if (existingLagerSaldo != null)
+        {
+            db.LagerSaldos.Remove(existingLagerSaldo); 
+            db.SaveChanges(); 
+
+        }
+        else
+        {
+            Debug.WriteLine("The book does not exist in the selected store.");
+        }
     }
+
+
 
 
     private void SetActiveStore(object obj)

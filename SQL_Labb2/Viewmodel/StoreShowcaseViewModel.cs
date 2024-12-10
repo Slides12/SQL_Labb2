@@ -218,7 +218,10 @@ class StoreShowcaseViewModel : ViewModelBase
     {
         using var db = new DanielJohanssonContext();
         Books.Clear();
-        var allBooks = db.Böckers.ToList();
+        var allBooks = db.Böckers
+            .Include(b => b.LagerSaldos)
+            .Where(b => b.LagerSaldos.Any(l => l.Antal > 0 && l.ButikId == mainWindowViewModel.StoreId))
+            .ToList();
         foreach (var book in allBooks)
         {
             Books.Add(book);
@@ -227,21 +230,25 @@ class StoreShowcaseViewModel : ViewModelBase
     }
 
 
+
     private void FilterBooksByGenre(string genre)
     {
         using var db = new DanielJohanssonContext();
         Books.Clear();
-        var filteredBooks = db.Böckers
-                              .Include(b => b.IsbnNavigation)
-                              .Where(b => b.IsbnNavigation.Genre == genre)
-                              .ToList();
 
+        var filteredBooks = db.Böckers
+            .Include(b => b.LagerSaldos) 
+            .Include(b => b.IsbnNavigation) 
+            .Where(b => b.IsbnNavigation.Genre == genre && b.LagerSaldos.Any(l => l.Antal > 0 && l.ButikId == mainWindowViewModel.StoreId))
+            .ToList();
         foreach (var book in filteredBooks)
         {
             Books.Add(book);
         }
+
         mainWindowViewModel.SetStoreShowcaseCommand.Execute(this);
     }
+
 
 
 }
