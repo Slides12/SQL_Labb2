@@ -9,8 +9,8 @@
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
+            <RowDefinition Height="80" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="60" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -29,7 +29,7 @@
                 FontFamily="Cambria"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="2">
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             
         <StackPanel  HorizontalAlignment="Left">
             <Button Content="Add Book" 
@@ -58,17 +58,26 @@
 
             </StackPanel>
 
-            <StackPanel>
-
-                <Label Content="How many do you want to add?" FontWeight="Bold"/>
-
-                <TextBox Text="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="18" Width="50"/>
-
-            </StackPanel>
-
-
         </StackPanel>
-        
-        
+
+        <StackPanel Grid.Row="2" 
+                    Grid.Column="1">        
+        <DataGrid  
+                  ItemsSource="{Binding AdminViewModel.StockBalance}"
+                  CanUserAddRows="False"
+                  AutoGenerateColumns ="False"
+                  HorizontalAlignment="Center">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Store ID" Binding="{Binding ButikId}" IsReadOnly="True" Width="20"/>
+                <DataGridTextColumn Header="Store Name" Binding="{Binding Butik.ButiksNamn}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Antal}" Width="auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+            <Button Content="Save" 
+                    Width="100" 
+                    Margin="10"/>
+        </StackPanel>
+
+
     </Grid>
 </UserControl>

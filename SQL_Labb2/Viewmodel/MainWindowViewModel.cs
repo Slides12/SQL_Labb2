@@ -53,18 +53,7 @@ internal class MainWindowViewModel : ViewModelBase
         set
         {
             _storeId = value;
-            if(_storeId != null)
-            {
-                if (_storeId == 4)
-                {
-                    StoreShowcaseViewModel.PopulateAdminBookListAsync();
-                }
-                else
-                {
-                    StoreShowcaseViewModel.PopulateBookListAsync();
-                }
-            }
-            RaiseProperyChanged("StoreId");
+            _ = UpdateStoreIdAsync();
         }
     }
 
@@ -208,6 +197,24 @@ internal class MainWindowViewModel : ViewModelBase
                 StoreId = 4;
                 break;
         }
+    }
+
+    private async Task UpdateStoreIdAsync()
+    {
+        if (_storeId != null)
+        {
+            await StoreShowcaseViewModel.PopulateGenreButtonListAsync();
+
+            if (_storeId == 4)
+            {
+                await StoreShowcaseViewModel.PopulateAdminBookListAsync();
+            }
+            else
+            {
+                await StoreShowcaseViewModel.PopulateBookListAsync();
+            }
+        }
+        RaiseProperyChanged("StoreId");
     }
 
 

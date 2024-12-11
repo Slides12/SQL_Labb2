@@ -22,6 +22,7 @@ internal class AdminViewModel : ViewModelBase
     public DelegateCommand AddBookCommand { get; }
     public DelegateCommand RemoveBookCommand { get; }
 
+    public ObservableCollection<LagerSaldo> StockBalance { get; private set; }
 
 
     private int _selectedIndex;
@@ -98,6 +99,8 @@ internal class AdminViewModel : ViewModelBase
         {
             Debug.WriteLine("Could not add book to store.");
         }
+        LoadStockBalance();
+        RaiseProperyChanged(nameof(StockBalance));
 
     }
 
@@ -124,6 +127,8 @@ internal class AdminViewModel : ViewModelBase
         {
             Debug.WriteLine("The book does not exist in the selected store.");
         }
+        LoadStockBalance();
+        RaiseProperyChanged(nameof(StockBalance));
     }
 
 
@@ -136,6 +141,20 @@ internal class AdminViewModel : ViewModelBase
             SelectedIndex = comboBox.SelectedIndex; 
             RaiseProperyChanged(nameof(SelectedIndex));
         }
+    }
+
+    public void LoadStockBalance()
+    {
+        using var db = new DanielJohanssonContext();
+
+        StockBalance = new ObservableCollection<LagerSaldo>
+            (
+                db.LagerSaldos
+                .Include(l => l.Butik)
+                .Where(l => l.Isbn == mainWindowViewModel.StoreShowcaseViewModel.ActiveBook.Isbn)
+                .ToList()
+            );
+        RaiseProperyChanged(nameof(StockBalance));
     }
 
 

@@ -42,7 +42,8 @@ class StoreShowcaseViewModel : ViewModelBase
                 else
                 {
                     mainWindowViewModel.SetAdminViewCommand.Execute(this);
-
+                    mainWindowViewModel.AdminViewModel.LoadStockBalance();
+                    RaiseProperyChanged("StockBalance");
                 }
             }
             RaiseProperyChanged();
@@ -101,7 +102,6 @@ class StoreShowcaseViewModel : ViewModelBase
         Books = new ObservableCollection<Böcker>();
 
         // Methods
-        PopulateGenreButtonList();
     }
 
     private void AddBook(object obj)
@@ -187,21 +187,21 @@ class StoreShowcaseViewModel : ViewModelBase
         }
     }
 
-    public void PopulateGenreButtonList()
+    public async Task PopulateGenreButtonListAsync()
     {
         using var db = new DanielJohanssonContext();
-
+        GenreButtons.Clear();
         GenreButtons.Add(new Button
         {
             Content = "All Genres",
             Command = new DelegateCommand(_ => ShowAllBooks())
         });
 
-        var genres = db.Böckers
+        var genres = await db.Böckers
                        .Include(b => b.IsbnNavigation)
                        .Select(b => b.IsbnNavigation.Genre)
                        .Distinct()
-                       .ToList();
+                       .ToListAsync();
 
         foreach (var genre in genres)
         {
@@ -248,6 +248,8 @@ class StoreShowcaseViewModel : ViewModelBase
 
         mainWindowViewModel.SetStoreShowcaseCommand.Execute(this);
     }
+
+
 
 
 
