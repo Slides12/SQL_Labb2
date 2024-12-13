@@ -198,3 +198,5 @@ C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\App.bam
 C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\Assets\LeftArrow.png
 C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\View\AdminView.g.cs
 C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\View\AdminView.baml
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\Windows\AddBookWindow.g.cs
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\Windows\AddBookWindow.baml

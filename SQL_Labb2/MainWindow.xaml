@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SQL_Labb2" xmlns:view="clr-namespace:SQL_Labb2.View"
         mc:Ignorable="d"
-        Title="DJ's Book Store" Height="850" Width="1200" Icon="/Assets/Book.ico" Background="GhostWhite">
+        Title="DJ's Book Store" Height="850" Width="1200" Icon="/Assets/Book.ico" Background="GhostWhite" MinHeight="700" MinWidth="1200">
     <Window.InputBindings>
         <!--<KeyBinding Key="P" Modifiers="Ctrl" Command="{Binding SetPlayerViewCommand}"/>
         <KeyBinding Key="E" Modifiers="Ctrl" Command="{Binding SetConfigViewCommand}"/>

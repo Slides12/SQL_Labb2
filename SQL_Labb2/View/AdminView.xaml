@@ -10,7 +10,7 @@
              
              d:DesignHeight="450" d:DesignWidth="800">
     
-    <Grid ShowGridLines="True">
+    <Grid ShowGridLines="False">
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
             <RowDefinition Height="80" />
@@ -19,7 +19,6 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
@@ -77,9 +76,11 @@
                 <DataGridTextColumn Header="Quantity" Binding="{Binding Antal}" Width="auto"/>
             </DataGrid.Columns>
         </DataGrid>
-            <Button Content="Save" 
+            <Label Content="Change to desired quantity and press save below to save changes." HorizontalContentAlignment="Center"/>
+            <Button Content="Save changes" 
                     Width="100" 
-                    Margin="10"/>
+                    Margin="10"
+                    Command="{Binding AdminViewModel.SaveBookInformationCommand}"/>
         </StackPanel>
 
 

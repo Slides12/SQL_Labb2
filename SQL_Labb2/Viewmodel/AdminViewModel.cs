@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SQL_Labb2.Command;
 using SQL_Labb2.Model;
+using SQL_Labb2.Windows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,6 +22,7 @@ internal class AdminViewModel : ViewModelBase
     public DelegateCommand SetActiveStoreCommand { get; }
     public DelegateCommand AddBookCommand { get; }
     public DelegateCommand RemoveBookCommand { get; }
+    public DelegateCommand SaveBookInformationCommand { get; }
 
     public ObservableCollection<LagerSaldo> StockBalance { get; private set; }
 
@@ -46,6 +48,18 @@ internal class AdminViewModel : ViewModelBase
         SetActiveStoreCommand = new DelegateCommand(SetActiveStore);
         AddBookCommand = new DelegateCommand(AddBook);
         RemoveBookCommand = new DelegateCommand(RemoveBook);
+        SaveBookInformationCommand = new DelegateCommand(SaveBookInfo);
+
+    }
+
+    private void SaveBookInfo(object obj)
+    {
+        using var db = new DanielJohanssonContext();
+        foreach (var lagerSaldo in StockBalance)
+        {
+            db.LagerSaldos.Update(lagerSaldo);
+        }
+        db.SaveChanges();
     }
 
     private void AddBook(object obj)
@@ -74,22 +88,22 @@ internal class AdminViewModel : ViewModelBase
                 Antal = 1
             };
 
-            var butik = db.Butikers.Find(SelectedIndex + 1);
-            if (butik == null)
+            var butikExists = db.Butikers.Find(SelectedIndex + 1);
+            if (butikExists == null)
             {
                 Debug.WriteLine("Store could not be found.");
                 return;
             }
 
-            var bookEntity = db.Böckers.Find(book.Isbn);
-            if (bookEntity == null)
+            var bookExists = db.Böckers.Find(book.Isbn);
+            if (bookExists == null)
             {
                 Debug.WriteLine("Book not be found in db.");
                 return;
             }
 
-            db.Attach(butik);  
-            db.Attach(bookEntity); 
+            db.Attach(butikExists);  
+            db.Attach(bookExists); 
 
             db.LagerSaldos.Add(newLagerSaldo);
             db.SaveChanges(); 

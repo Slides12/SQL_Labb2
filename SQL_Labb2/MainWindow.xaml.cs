@@ -1,4 +1,5 @@
 ﻿using SQL_Labb2.Viewmodel;
+using SQL_Labb2.Windows;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,7 +21,12 @@ namespace SQL_Labb2
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
+            DataContext = new MainWindowViewModel() { AddBooks = OpenAddBookWindow};
+        }
+
+        private void OpenAddBookWindow()
+        {
+            new AddBookWindow().Show();
         }
     }
 }
