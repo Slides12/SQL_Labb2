@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,6 +25,24 @@ namespace SQL_Labb2.Windows
         {
             InitializeComponent();
             DataContext = new AddBookViewModel();
+        }
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var regex = new Regex(@"^\d*$");
+            if (!regex.IsMatch(e.Text))
+            {
+                e.Handled = true; 
+            }
+
+            var textbox = sender as TextBox;
+            if (textbox != null)
+            {
+                if (textbox.Text.Length >= 13 || (textbox.Text.StartsWith("9") == false && textbox.Text.Length > 0))
+                {
+                    e.Handled = true; 
+                }
+            }
         }
     }
 }

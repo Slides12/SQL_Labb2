@@ -11,6 +11,7 @@ namespace SQL_Labb2.Command
     {
         private readonly Action<object> execute;
         private readonly Func<object?, bool> canExecute;
+        private Action addBook;
 
         public event EventHandler? CanExecuteChanged;
 
@@ -19,6 +20,11 @@ namespace SQL_Labb2.Command
             ArgumentNullException.ThrowIfNull(execute);
             this.execute = execute;
             this.canExecute = canExecute;
+        }
+
+        public DelegateCommand(Action addBook)
+        {
+            this.addBook = addBook;
         }
 
         public void RaiseCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);

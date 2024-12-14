@@ -10,7 +10,7 @@
              
              d:DesignHeight="450" d:DesignWidth="800">
     
-    <Grid ShowGridLines="False">
+    <Grid ShowGridLines="false">
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
             <RowDefinition Height="80" />
@@ -39,11 +39,13 @@
                     Width="100" 
                     Margin="5"
                     Command="{Binding AdminViewModel.AddBookCommand}"/>
+            
             <Button Content="Remove Book" 
                     Width="100" 
                     Margin="5"
                      Command="{Binding AdminViewModel.RemoveBookCommand}"/>
         </StackPanel>
+            <TextBlock Width="50"/>
             <StackPanel>
 
                 <Label Content="Choose which store to add/remove." FontWeight="Bold"/>
@@ -71,8 +73,8 @@
                   AutoGenerateColumns ="False"
                   HorizontalAlignment="Center">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Store ID" Binding="{Binding ButikId}" IsReadOnly="True" Width="20"/>
-                <DataGridTextColumn Header="Store Name" Binding="{Binding Butik.ButiksNamn}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Store ID" Binding="{Binding ButikId}" IsReadOnly="True" Width="60"/>
+                <DataGridTextColumn Header="Store Name" Binding="{Binding Butik.ButiksNamn}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Quantity" Binding="{Binding Antal}" Width="auto"/>
             </DataGrid.Columns>
         </DataGrid>

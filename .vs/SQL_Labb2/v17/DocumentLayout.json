@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|solutionrelative:sql_labb2\\viewmodel\\addbookviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|c:\\users\\djoha\\source\\repos\\sql_labb2\\sql_labb2\\windows\\addbookwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|solutionrelative:sql_labb2\\windows\\addbookwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|c:\\users\\djoha\\source\\repos\\sql_labb2\\sql_labb2\\windows\\addbookwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|solutionrelative:sql_labb2\\windows\\addbookwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|c:\\users\\djoha\\source\\repos\\sql_labb2\\sql_labb2\\model\\b\u00F6cker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|solutionrelative:sql_labb2\\model\\b\u00F6cker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|c:\\users\\djoha\\source\\repos\\sql_labb2\\sql_labb2\\windows\\addbookwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|solutionrelative:sql_labb2\\windows\\addbookwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,15 +26,15 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "B\u00F6cker.cs",
-              "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\Model\\B\u00F6cker.cs",
-              "RelativeDocumentMoniker": "SQL_Labb2\\Model\\B\u00F6cker.cs",
-              "ToolTip": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\Model\\B\u00F6cker.cs",
-              "RelativeToolTip": "SQL_Labb2\\Model\\B\u00F6cker.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAmAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "AddBookWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\Windows\\AddBookWindow.xaml.cs",
+              "RelativeDocumentMoniker": "SQL_Labb2\\Windows\\AddBookWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\Windows\\AddBookWindow.xaml.cs",
+              "RelativeToolTip": "SQL_Labb2\\Windows\\AddBookWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T13:58:11.6Z",
+              "WhenOpened": "2024-12-14T12:19:26.753Z",
               "EditorCaption": ""
             },
             {
@@ -45,21 +45,21 @@
               "RelativeDocumentMoniker": "SQL_Labb2\\Viewmodel\\AddBookViewModel.cs",
               "ToolTip": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\Viewmodel\\AddBookViewModel.cs",
               "RelativeToolTip": "SQL_Labb2\\Viewmodel\\AddBookViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAHoAAAAAAAAAAADwv4EAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T13:57:16.752Z",
+              "WhenOpened": "2024-12-14T10:36:56.113Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AddBookWindow.xaml",
               "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\Windows\\AddBookWindow.xaml",
               "RelativeDocumentMoniker": "SQL_Labb2\\Windows\\AddBookWindow.xaml",
               "ToolTip": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\Windows\\AddBookWindow.xaml",
               "RelativeToolTip": "SQL_Labb2\\Windows\\AddBookWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-13T13:57:02.249Z",
+              "WhenOpened": "2024-12-14T10:36:55.059Z",
               "EditorCaption": ""
             }
           ]
