@@ -80,7 +80,7 @@
                              BorderThickness="0"
                              Padding="10"
                              Margin="10,5"
-                             Width="100"
+                             Width="150"
                              Height="40"
                              Command="{Binding Command}"
                              CommandParameter="{Binding CommandParameter}"

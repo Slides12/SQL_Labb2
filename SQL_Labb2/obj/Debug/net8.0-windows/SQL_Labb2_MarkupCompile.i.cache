@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\App.xaml
 7-314851186
 12303289686
-31-1533750254
+32-1550069702
 238-1779499535
 MainWindow.xaml;View\AdminView.xaml;View\BookInfoView.xaml;View\MenuView.xaml;View\StoreShowcase.xaml;View\StoreView.xaml;Windows\AddBookWindow.xaml;
 
-False
+True
 

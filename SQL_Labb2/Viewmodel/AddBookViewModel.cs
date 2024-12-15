@@ -15,7 +15,9 @@ namespace SQL_Labb2.Viewmodel;
 
 internal class AddBookViewModel : ViewModelBase
 {
-    public ObservableCollection<Böcker> DbBooks { get; set; }
+    public ObservableCollection<string> Genres { get; set; }
+    public ObservableCollection<string> Authors { get; set; }
+    public ObservableCollection<string> Languages { get; set; }
 
     public DelegateCommand AddBookCommand { get; }
 
@@ -41,24 +43,35 @@ internal class AddBookViewModel : ViewModelBase
         }
     }
 
-    private string _firstName;
-    public string FirstName
+    private string _newAuthor;
+    public string NewAuthor
     {
-        get => _firstName;
+        get => _newAuthor;
         set
         {
-            _firstName = value;
+            _newAuthor = value;
             RaiseProperyChanged();
         }
     }
 
-    private string _lastName;
-    public string LastName
+    private string _selectedAuthor;
+    public string SelectedAuthor
     {
-        get => _lastName;
+        get => _selectedAuthor;
         set
         {
-            _lastName = value;
+            _selectedAuthor = value;
+            RaiseProperyChanged();
+        }
+    }
+
+    private int _price;
+    public int Price
+    {
+        get => _price;
+        set
+        {
+            _price = value;
             RaiseProperyChanged();
         }
     }
@@ -74,24 +87,47 @@ internal class AddBookViewModel : ViewModelBase
         }
     }
 
-    private string _genre;
-    public string Genre
+    private string _selectedGenre;
+    public string SelectedGenre
     {
-        get => _genre;
+        get => _selectedGenre;
         set
         {
-            _genre = value;
+            _selectedGenre = value;
             RaiseProperyChanged();
         }
     }
 
-    private string _language;
-    public string Language
+    private string _newGenre;
+    public string NewGenre
     {
-        get => _language;
+        get => _newGenre;
         set
         {
-            _language = value;
+            _newGenre = value;
+            RaiseProperyChanged();
+        }
+    }
+
+    private string _selectedLanguage;
+    public string SelectedLanguage
+    {
+        get => _selectedLanguage;
+        set
+        {
+            _selectedLanguage = value;
+            RaiseProperyChanged();
+        }
+    }
+
+
+    private string _newlanguage;
+    public string NewLanguage
+    {
+        get => _newlanguage;
+        set
+        {
+            _newlanguage = value;
             RaiseProperyChanged();
         }
     }
@@ -110,51 +146,92 @@ internal class AddBookViewModel : ViewModelBase
     public AddBookViewModel()
     {
         AddBookCommand = new DelegateCommand(AddBook);
-        PopulateAddBookList();
+        PopulateAddBookLists();
     }
 
-    public void PopulateAddBookList()
+    public void PopulateAddBookLists()
     {
         using var db = new DanielJohanssonContext();
 
-        DbBooks = new ObservableCollection<Böcker>
-            (
-                db.Böckers
-                .Include(b => b.LagerSaldos)
-                .Include(b => b.IsbnNavigation)
-                .Include(b => b.Författares)
-                .ToList()
+       
+        Authors = new ObservableCollection<string>(
+            db.Författares.Select(f => f.Förnamn + " " + f.Efternamn).ToList()
             );
-        RaiseProperyChanged("DbBooks");
+
+        Genres = new ObservableCollection<string>(
+            db.BokInformations.Select(b => b.Genre).Distinct().ToList()
+            );
+
+        Languages = new ObservableCollection<string>(
+            db.Böckers.Select(b => b.Språk).Distinct().ToList()
+            );
+
+        RaiseProperyChanged("Authors");
+        RaiseProperyChanged("Genres");
+        RaiseProperyChanged("Languages");
     }
 
-    private void AddBook()
+    private void AddBook(object obj)
     {
         if (CheckIsbn(Isbn))
         {
             using var db = new DanielJohanssonContext();
-
+            var author = NewAuthor?.Split(" ") ?? SelectedAuthor?.Split(" ");
             var newBook = new Böcker
             {
                 Isbn = Isbn,
                 Titel = Title,
-                Språk = Language,
+                Språk = NewLanguage ?? SelectedLanguage,
                 Utgivningsdatum = Pyear,
+                Pris = Price,
+                IsbnNavigation = new BokInformation
+                {
+                    Isbn = Isbn,
+                    Beskrivning = Description
+                },
+                LagerSaldos = new List<LagerSaldo>()
+                {
+                    new LagerSaldo()
+                    {
+                        Isbn = Isbn,
+                        ButikId = 1,
+                        Antal = 0
+                    },
+
+                    new LagerSaldo()
+                    {
+                        Isbn = Isbn,
+                        ButikId = 2,
+                        Antal = 0
+                    },
+
+                    new LagerSaldo()
+                    {
+                        Isbn = Isbn,
+                        ButikId = 3,
+                        Antal = 0
+                    }
+                },
                 Författares = new List<Författare>
                 {
                     new Författare
                     {
-                        Förnamn = FirstName,
-                        Efternamn = LastName
+
+                        Förnamn = author[0],
+                        Efternamn = author[1]
                     }
                 }
             };
 
             db.Böckers.Add(newBook);
+            Debug.WriteLine(newBook.Isbn);
             Debug.WriteLine(newBook.Titel);
-            //db.SaveChanges();
+            Debug.WriteLine(newBook.Språk);
+            Debug.WriteLine(newBook.Utgivningsdatum);
+            Debug.WriteLine(newBook.IsbnNavigation.Beskrivning);
+            db.SaveChanges();
 
-            PopulateAddBookList();
+            PopulateAddBookLists();
         }
         else
         {

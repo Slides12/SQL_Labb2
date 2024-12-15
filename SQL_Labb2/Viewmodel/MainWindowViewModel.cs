@@ -297,7 +297,6 @@ internal class MainWindowViewModel : ViewModelBase
         StoreShowcaseVisibility = Visibility.Visible;
         AdminViewVisibility = Visibility.Visible;
 
-        Debug.WriteLine($"AddBookBTNVisibility is now: {AddBookBTNVisibility}");
     }
 
 
