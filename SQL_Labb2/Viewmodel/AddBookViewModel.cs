@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Diagnostics;
+using System.Windows;
 
 namespace SQL_Labb2.Viewmodel;
 
@@ -132,7 +133,7 @@ internal class AddBookViewModel : ViewModelBase
         }
     }
 
-    private DateOnly _pyear;
+    private DateOnly _pyear = DateOnly.FromDateTime(DateTime.Now);
     public DateOnly Pyear
     {
         get => _pyear;
@@ -155,7 +156,7 @@ internal class AddBookViewModel : ViewModelBase
 
        
         Authors = new ObservableCollection<string>(
-            db.Författares.Select(f => f.Förnamn + " " + f.Efternamn).ToList()
+            db.Författares.Select(f => f.Förnamn + " " + f.Efternamn).Distinct().ToList()
             );
 
         Genres = new ObservableCollection<string>(
@@ -173,10 +174,21 @@ internal class AddBookViewModel : ViewModelBase
 
     private void AddBook(object obj)
     {
+
+        if(Title == null || (NewAuthor == null && SelectedAuthor == null) || (NewGenre == null && SelectedGenre == null) || (NewLanguage == null && SelectedLanguage == null) || Pyear == null) 
+        { 
+            MessageBox.Show("You need to add ISBN, Title, Price, Author, Genre, language and Publishing year.", "Error: Wrong/Missing input.", MessageBoxButton.OK); 
+            return; 
+        }
+
         if (CheckIsbn(Isbn))
         {
             using var db = new DanielJohanssonContext();
             var author = NewAuthor?.Split(" ") ?? SelectedAuthor?.Split(" ");
+
+            var firstName = author.Length > 0 ? author[0] : null;
+            var lastName = author.Length > 1 ? author[1] : null;
+
             var newBook = new Böcker
             {
                 Isbn = Isbn,
@@ -187,7 +199,8 @@ internal class AddBookViewModel : ViewModelBase
                 IsbnNavigation = new BokInformation
                 {
                     Isbn = Isbn,
-                    Beskrivning = Description
+                    Beskrivning = Description,
+                    Genre = NewGenre ?? SelectedGenre
                 },
                 LagerSaldos = new List<LagerSaldo>()
                 {
@@ -217,25 +230,22 @@ internal class AddBookViewModel : ViewModelBase
                     new Författare
                     {
 
-                        Förnamn = author[0],
-                        Efternamn = author[1]
+                        Förnamn = firstName,
+                        Efternamn = lastName
                     }
                 }
             };
 
             db.Böckers.Add(newBook);
-            Debug.WriteLine(newBook.Isbn);
-            Debug.WriteLine(newBook.Titel);
-            Debug.WriteLine(newBook.Språk);
-            Debug.WriteLine(newBook.Utgivningsdatum);
-            Debug.WriteLine(newBook.IsbnNavigation.Beskrivning);
             db.SaveChanges();
 
             PopulateAddBookLists();
+            var currentWindow = obj as Window;
+            currentWindow.Close();
         }
         else
         {
-            Console.WriteLine("ISBN must be a number, start with a 9 and be 13 characters long.");
+            MessageBox.Show("ISBN must be a number, start with a 9 and be 13 characters long.");
         }
     }
 
@@ -247,4 +257,5 @@ internal class AddBookViewModel : ViewModelBase
         var regex = new Regex(@"^9\d+$"); 
         return regex.IsMatch(isbn);
     }
+
 }

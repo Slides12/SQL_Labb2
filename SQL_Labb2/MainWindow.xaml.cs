@@ -21,12 +21,17 @@ namespace SQL_Labb2
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel() { AddBooks = OpenAddBookWindow};
+            DataContext = new MainWindowViewModel() { AddBooks = OpenAddBookWindow, RemoveBooks = OpenRemoveBookWindow};
         }
 
         private void OpenAddBookWindow()
         {
             new AddBookWindow().Show();
+        }
+
+        private void OpenRemoveBookWindow()
+        {
+            new RemoveBookWindow().Show();
         }
     }
 }

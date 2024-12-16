@@ -39,6 +39,30 @@ internal class AdminViewModel : ViewModelBase
         }
     }
 
+    private BokInformation _bookInfo;
+
+    public BokInformation BookInfo
+    {
+        get => _bookInfo;
+        set
+        {
+            _bookInfo = value;
+            RaiseProperyChanged();
+        }
+    }
+
+    private Böcker _book;
+
+    public Böcker Book
+    {
+        get => _book;
+        set
+        {
+            _book = value;
+            RaiseProperyChanged();
+        }
+    }
+
 
     public AdminViewModel(MainWindowViewModel? mainWindowViewModel)
     {
@@ -48,17 +72,22 @@ internal class AdminViewModel : ViewModelBase
         SetActiveStoreCommand = new DelegateCommand(SetActiveStore);
         AddBookCommand = new DelegateCommand(AddBook);
         RemoveBookCommand = new DelegateCommand(RemoveBook);
-        SaveBookInformationCommand = new DelegateCommand(SaveBookInfo);
+        SaveBookInformationCommand = new DelegateCommand(SaveBookChanges);
 
     }
 
-    private void SaveBookInfo(object obj)
+    private void SaveBookChanges(object obj)
     {
         using var db = new DanielJohanssonContext();
         foreach (var lagerSaldo in StockBalance)
         {
             db.LagerSaldos.Update(lagerSaldo);
         }
+
+        db.BokInformations.Update(BookInfo);
+
+        db.Böckers.Update(Book);
+
         db.SaveChanges();
     }
 
@@ -113,7 +142,7 @@ internal class AdminViewModel : ViewModelBase
         {
             Debug.WriteLine("Could not add book to store.");
         }
-        LoadStockBalance();
+        LoadAdminBookInfo();
         RaiseProperyChanged(nameof(StockBalance));
 
     }
@@ -141,7 +170,7 @@ internal class AdminViewModel : ViewModelBase
         {
             Debug.WriteLine("The book does not exist in the selected store.");
         }
-        LoadStockBalance();
+        LoadAdminBookInfo();
         RaiseProperyChanged(nameof(StockBalance));
     }
 
@@ -157,7 +186,7 @@ internal class AdminViewModel : ViewModelBase
         }
     }
 
-    public void LoadStockBalance()
+    public void LoadAdminBookInfo()
     {
         using var db = new DanielJohanssonContext();
 
@@ -168,6 +197,10 @@ internal class AdminViewModel : ViewModelBase
                 .Where(l => l.Isbn == mainWindowViewModel.StoreShowcaseViewModel.ActiveBook.Isbn)
                 .ToList()
             );
+
+        BookInfo = db.BokInformations.FirstOrDefault(bi => bi.Isbn == mainWindowViewModel.StoreShowcaseViewModel.ActiveBook.Isbn);
+
+        Book = db.Böckers.FirstOrDefault(b => b.Isbn == mainWindowViewModel.StoreShowcaseViewModel.ActiveBook.Isbn);
         RaiseProperyChanged(nameof(StockBalance));
     }
 

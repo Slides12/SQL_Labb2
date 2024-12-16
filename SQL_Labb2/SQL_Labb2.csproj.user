@@ -25,6 +25,9 @@
     <Compile Update="Windows\AddBookWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Windows\RemoveBookWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
@@ -46,6 +49,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\AddBookWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\RemoveBookWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

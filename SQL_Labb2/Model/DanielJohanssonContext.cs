@@ -83,7 +83,7 @@ public partial class DanielJohanssonContext : DbContext
 
             entity.HasOne(d => d.IsbnNavigation).WithOne(p => p.Böcker)
                 .HasForeignKey<Böcker>(d => d.Isbn)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK_Böcker_BokInformation");
 
             entity.HasMany(d => d.Författares).WithMany(p => p.Isbns)
@@ -91,11 +91,11 @@ public partial class DanielJohanssonContext : DbContext
                     "BöckerFörfattare",
                     r => r.HasOne<Författare>().WithMany()
                         .HasForeignKey("FörfattareId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .HasConstraintName("FK_BöckerFörfattare_Författare"),
                     l => l.HasOne<Böcker>().WithMany()
                         .HasForeignKey("Isbn")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .HasConstraintName("FK_BöckerFörfattare_Böcker"),
                     j =>
                     {
@@ -146,12 +146,12 @@ public partial class DanielJohanssonContext : DbContext
 
             entity.HasOne(d => d.Butik).WithMany(p => p.LagerSaldos)
                 .HasForeignKey(d => d.ButikId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK_LagerSaldo_Butiker");
 
             entity.HasOne(d => d.IsbnNavigation).WithMany(p => p.LagerSaldos)
                 .HasForeignKey(d => d.Isbn)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK_LagerSaldo_Böcker");
         });
 

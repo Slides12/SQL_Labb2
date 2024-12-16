@@ -4,7 +4,7 @@
         xmlns:local="clr-namespace:SQL_Labb2.Viewmodel"
         xmlns:c="clr-namespace:SQL_Labb2.Converter"
         
-        Title="Add Book" Height="700" Width="400" ResizeMode="NoResize" Background="LightGray">
+        Title="Add Book" Height="700" Width="400" ResizeMode="NoResize" Background="LightGray" Icon="/Assets/Book.ico">
 
     <Window.Resources>
         <c:DateOnlyToDateTimeConverter x:Key="DateOnlyToDateTimeConverter" />
@@ -14,7 +14,7 @@
 
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" >
             
-            <Label Content="ISBN" HorizontalAlignment="Center" FontWeight="Bold" />
+            <Label Content="ISBN (Starts with a 9 and is 13 numbers long.)" HorizontalAlignment="Center" FontWeight="Bold" />
             <TextBox Width="200" Margin="5" Text="{Binding Isbn}" PreviewTextInput="TextBox_PreviewTextInput"/>
 
             <Label Content="Title" HorizontalAlignment="Center" FontWeight="Bold"/>
@@ -23,15 +23,15 @@
             <Label Content="Price" HorizontalAlignment="Center" FontWeight="Bold"/>
             <TextBox Width="200" Margin="5" Text="{Binding Price}" />
             
-            <Label Content="Select Author" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <Label Content="Select/New Author" HorizontalAlignment="Center" FontWeight="Bold"/>
             <ComboBox Width="200" Margin="5" SelectedItem="{Binding SelectedAuthor}" ItemsSource="{Binding Authors}" />
             <TextBox Width="200" Margin="5" Text="{Binding NewAuthor}" />
 
-            <Label Content="Select Genre" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <Label Content="Select/New Genre" HorizontalAlignment="Center" FontWeight="Bold"/>
             <ComboBox Width="200" Margin="5" SelectedItem="{Binding SelectedGenre}" ItemsSource="{Binding Genres}" />
             <TextBox Width="200" Margin="5" Text="{Binding NewGenre}" />
 
-            <Label Content="Select Language" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <Label Content="Select/New Language" HorizontalAlignment="Center" FontWeight="Bold"/>
             <ComboBox Width="200" Margin="5" SelectedItem="{Binding SelectedLanguage}" ItemsSource="{Binding Languages}"/>
             <TextBox Width="200" Margin="5" Text="{Binding NewLanguage}" />
 
@@ -41,7 +41,7 @@
             <Label Content="Publishing year" HorizontalAlignment="Center" FontWeight="Bold"/>
             <DatePicker Width="200" Margin="5" SelectedDate="{Binding Pyear, Mode=TwoWay, Converter={StaticResource DateOnlyToDateTimeConverter}}" />
 
-            <Button Content="Add Book" Width="200" Margin="5" Command="{Binding AddBookCommand}" />
+            <Button Content="Add Book" Width="200" Margin="5" Command="{Binding AddBookCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
         </StackPanel>
     </Grid>
 </Window>

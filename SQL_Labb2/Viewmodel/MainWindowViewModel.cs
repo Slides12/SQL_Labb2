@@ -29,6 +29,7 @@ internal class MainWindowViewModel : ViewModelBase
     public DelegateCommand SetBookInfoViewCommand { get; }
     public DelegateCommand SetAdminViewCommand { get; }
     public DelegateCommand AddBooksCommand { get; private set; }
+    public DelegateCommand RemoveBooksCommand { get; private set; }
 
 
 
@@ -153,6 +154,7 @@ internal class MainWindowViewModel : ViewModelBase
     }
 
     public Action AddBooks { get; set; }
+    public Action RemoveBooks { get; set; }
 
     public MainWindowViewModel()
     {
@@ -164,6 +166,7 @@ internal class MainWindowViewModel : ViewModelBase
         SetBookInfoViewCommand = new DelegateCommand(SetBookInfoView);
         SetAdminViewCommand = new DelegateCommand(SetAdminView);
         AddBooksCommand = new DelegateCommand(AddBook);
+        RemoveBooksCommand = new DelegateCommand(RemoveBook);
 
         // Visibility
         StoreViewVisibility = Visibility.Visible;
@@ -181,6 +184,7 @@ internal class MainWindowViewModel : ViewModelBase
     }
 
     private void AddBook(object obj) => AddBooks();
+    private void RemoveBook(object obj) => RemoveBooks();
 
     private async void SetStoreDetails(string store)
     {
@@ -199,7 +203,7 @@ internal class MainWindowViewModel : ViewModelBase
         }
         catch (Exception ex) 
         {
-            MessageBox.Show("Seems there's something wrong with the connection to the database.");
+            MessageBox.Show($"Seems there's something wrong with the connection to the database.{ex.Message}");
         }
     }
 

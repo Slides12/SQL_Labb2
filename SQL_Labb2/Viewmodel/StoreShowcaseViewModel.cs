@@ -16,7 +16,6 @@ namespace SQL_Labb2.Viewmodel;
 class StoreShowcaseViewModel : ViewModelBase
 {
     private readonly MainWindowViewModel mainWindowViewModel;
-    public DelegateCommand AddBookCommand { get; }
     public DelegateCommand SetActiveBookCommand { get; }
     public ObservableCollection<Button> GenreButtons { get; set; }
     public ObservableCollection<Böcker> Books { get; set; }
@@ -82,7 +81,6 @@ class StoreShowcaseViewModel : ViewModelBase
     {
         this.mainWindowViewModel = mainWindowViewModel;
         //Delegates
-        AddBookCommand = new DelegateCommand(AddBook);
         SetActiveBookCommand = new DelegateCommand(SetActiveBook);
 
         // Lists
@@ -90,10 +88,7 @@ class StoreShowcaseViewModel : ViewModelBase
 
     }
 
-    private void AddBook(object obj)
-    {
-        Books.Add(new Böcker() { Pris = 1, Titel = "Hejsan"});
-    }
+   
 
     public async void SetBookStoreInfo()
     {
@@ -106,7 +101,7 @@ class StoreShowcaseViewModel : ViewModelBase
         else
         {
             mainWindowViewModel.SetAdminViewCommand.Execute(this);
-            mainWindowViewModel.AdminViewModel.LoadStockBalance();
+            mainWindowViewModel.AdminViewModel.LoadAdminBookInfo();
             RaiseProperyChanged("StockBalance");
         }
 
@@ -190,6 +185,8 @@ class StoreShowcaseViewModel : ViewModelBase
 
         var genres = await db.Böckers
                        .Include(b => b.IsbnNavigation)
+                       .Include(b => b.LagerSaldos)
+                       .Where(b => b.LagerSaldos.Any(saldo => saldo.ButikId == mainWindowViewModel.StoreId && saldo.Antal > 0 || mainWindowViewModel.StoreId == 4))
                        .Select(b => b.IsbnNavigation.Genre)
                        .Distinct()
                        .ToListAsync();
@@ -211,13 +208,20 @@ class StoreShowcaseViewModel : ViewModelBase
         Books.Clear();
         var allBooks = db.Böckers
             .Include(b => b.LagerSaldos)
-            .Where(b => b.LagerSaldos.Any(l => l.Antal > 0 && l.ButikId == mainWindowViewModel.StoreId))
+            .Where(b => b.LagerSaldos.Any(l => l.ButikId == mainWindowViewModel.StoreId || mainWindowViewModel.StoreId == 4))
             .ToList();
         foreach (var book in allBooks)
         {
             Books.Add(book);
         }
+        if(mainWindowViewModel.StoreId != 4) 
+        { 
         mainWindowViewModel.SetStoreShowcaseCommand.Execute(this);
+        }
+        else
+        {
+            mainWindowViewModel.SetAdminViewCommand.Execute(this);
+        }
     }
 
 
@@ -230,14 +234,22 @@ class StoreShowcaseViewModel : ViewModelBase
         var filteredBooks = db.Böckers
             .Include(b => b.LagerSaldos) 
             .Include(b => b.IsbnNavigation) 
-            .Where(b => b.IsbnNavigation.Genre == genre && b.LagerSaldos.Any(l => l.Antal > 0 && l.ButikId == mainWindowViewModel.StoreId))
+            .Where(b => b.IsbnNavigation.Genre == genre && b.LagerSaldos.Any(l =>  l.ButikId == mainWindowViewModel.StoreId || mainWindowViewModel.StoreId == 4))
             .ToList();
         foreach (var book in filteredBooks)
         {
             Books.Add(book);
         }
 
+
+        if(mainWindowViewModel.StoreId != 4) 
+        { 
         mainWindowViewModel.SetStoreShowcaseCommand.Execute(this);
+        }
+        else
+        {
+            mainWindowViewModel.SetAdminViewCommand.Execute(this);
+        }
     }
 
 
