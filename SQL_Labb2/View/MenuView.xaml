@@ -18,25 +18,7 @@
 
             <MenuItem Header="_File" >
 
-                <MenuItem x:Name="newQPMenu" 
-                              Header="_New Question Pack" 
-                              Icon="{fa:Icon Folderplus}"/>
-
-
-
-                <MenuItem x:Name="deleteQPMenu" 
-                        Header="_Delete Question Pack" 
-                              Icon="{fa:Icon Folderminus}"/>
-
-                <Separator/>
-
-                <MenuItem x:Name="importQuestionsMenu" 
-                        Header="_Import Questions"
-                          InputGestureText="Ctrl+I"
-                          Icon="{fa:Icon cloudarrowdown}"/>
-
-
-                <Separator/>
+               
 
                 <MenuItem x:Name="exitMenu" 
                           Header="E_xit"
@@ -46,45 +28,13 @@
 
 
             </MenuItem>
-            <!--Edit Menu-->
-
-            <MenuItem Header="_Edit" >
-
-                <MenuItem x:Name="addQuestionMenu" 
-                        Header="_Add Question" 
-                          InputGestureText="Insert"
-                              Icon="{fa:Icon plus}"/>
-
-
-                <MenuItem x:Name="removeQuestionMenu"
-                        Header="_Remove Question"
-                          InputGestureText="Delete"
-                              Icon="{fa:Icon minus}"/>
-
-
-                <MenuItem x:Name="packOptionsMenu" 
-                        Header="Pack _Options" 
-                          InputGestureText="Ctrl+O"
-                      Icon="{fa:Icon toolbox}"/>
-
-
-            </MenuItem>
+         
 
 
             <!--View Menu-->
 
             <MenuItem Header="_View" >
 
-                <MenuItem x:Name="playMenu" 
-                        Header="_Play" 
-                          InputGestureText="Ctrl+P"
-                              Icon="{fa:Icon play}"/>
-
-
-                <MenuItem x:Name="editMenu"
-                        Header="_Edit"
-                          InputGestureText="Ctrl+E"
-                              Icon="{fa:Icon gear}"/>
 
 
                 <MenuItem x:Name="fullscreenMenu" 
