@@ -4,7 +4,7 @@
         xmlns:local="clr-namespace:SQL_Labb2.Viewmodel"
         xmlns:c="clr-namespace:SQL_Labb2.Converter"
         
-        Title="Add Book" Height="700" Width="400" ResizeMode="NoResize" Background="LightGray" Icon="/Assets/Book.ico">
+        Title="Add Book" Height="700" Width="400" ResizeMode="NoResize" Background="LightGray" Icon="/Assets/Book.ico" WindowStartupLocation="CenterOwner">
 
     <Window.Resources>
         <c:DateOnlyToDateTimeConverter x:Key="DateOnlyToDateTimeConverter" />

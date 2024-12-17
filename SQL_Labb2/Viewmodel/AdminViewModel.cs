@@ -63,6 +63,18 @@ internal class AdminViewModel : ViewModelBase
         }
     }
 
+    private Författare _author;
+
+    public Författare Author
+    {
+        get => _author;
+        set
+        {
+            _author = value;
+            RaiseProperyChanged();
+        }
+    }
+
 
     public AdminViewModel(MainWindowViewModel? mainWindowViewModel)
     {
@@ -87,6 +99,9 @@ internal class AdminViewModel : ViewModelBase
         db.BokInformations.Update(BookInfo);
 
         db.Böckers.Update(Book);
+
+        db.Författares.Update(Author);
+
 
         db.SaveChanges();
     }
@@ -201,6 +216,9 @@ internal class AdminViewModel : ViewModelBase
         BookInfo = db.BokInformations.FirstOrDefault(bi => bi.Isbn == mainWindowViewModel.StoreShowcaseViewModel.ActiveBook.Isbn);
 
         Book = db.Böckers.FirstOrDefault(b => b.Isbn == mainWindowViewModel.StoreShowcaseViewModel.ActiveBook.Isbn);
+
+        Author = db.Författares.FirstOrDefault(f => f.Isbns.Any(b => b.Isbn == mainWindowViewModel.StoreShowcaseViewModel.ActiveBook.Isbn));
+
         RaiseProperyChanged(nameof(StockBalance));
     }
 

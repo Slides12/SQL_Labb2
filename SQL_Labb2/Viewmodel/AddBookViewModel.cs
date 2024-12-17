@@ -174,78 +174,87 @@ internal class AddBookViewModel : ViewModelBase
 
     private void AddBook(object obj)
     {
+        using var db = new DanielJohanssonContext();
 
-        if(Title == null || (NewAuthor == null && SelectedAuthor == null) || (NewGenre == null && SelectedGenre == null) || (NewLanguage == null && SelectedLanguage == null) || Pyear == null) 
+        if (Title == null || (NewAuthor == null && SelectedAuthor == null) || (NewGenre == null && SelectedGenre == null) || (NewLanguage == null && SelectedLanguage == null) || Pyear == null) 
         { 
             MessageBox.Show("You need to add ISBN, Title, Price, Author, Genre, language and Publishing year.", "Error: Wrong/Missing input.", MessageBoxButton.OK); 
             return; 
         }
 
-        if (CheckIsbn(Isbn))
-        {
-            using var db = new DanielJohanssonContext();
-            var author = NewAuthor?.Split(" ") ?? SelectedAuthor?.Split(" ");
+        var doBookExist = db.Böckers.FirstOrDefault(book => book.Isbn == Isbn);
+        if(doBookExist == null)
+        { 
 
-            var firstName = author.Length > 0 ? author[0] : null;
-            var lastName = author.Length > 1 ? author[1] : null;
-
-            var newBook = new Böcker
+            if (CheckIsbn(Isbn))
             {
-                Isbn = Isbn,
-                Titel = Title,
-                Språk = NewLanguage ?? SelectedLanguage,
-                Utgivningsdatum = Pyear,
-                Pris = Price,
-                IsbnNavigation = new BokInformation
+                var author = NewAuthor?.Split(" ") ?? SelectedAuthor?.Split(" ");
+
+                var firstName = author.Length > 0 ? author[0] : null;
+                var lastName = author.Length > 1 ? author[1] : null;
+
+                var newBook = new Böcker
                 {
                     Isbn = Isbn,
-                    Beskrivning = Description,
-                    Genre = NewGenre ?? SelectedGenre
-                },
-                LagerSaldos = new List<LagerSaldo>()
-                {
-                    new LagerSaldo()
+                    Titel = Title,
+                    Språk = NewLanguage ?? SelectedLanguage,
+                    Utgivningsdatum = Pyear,
+                    Pris = Price,
+                    IsbnNavigation = new BokInformation
                     {
                         Isbn = Isbn,
-                        ButikId = 1,
-                        Antal = 0
+                        Beskrivning = Description,
+                        Genre = NewGenre ?? SelectedGenre
                     },
-
-                    new LagerSaldo()
+                    LagerSaldos = new List<LagerSaldo>()
                     {
-                        Isbn = Isbn,
-                        ButikId = 2,
-                        Antal = 0
+                        new LagerSaldo()
+                        {
+                            Isbn = Isbn,
+                            ButikId = 1,
+                            Antal = 0
+                        },
+
+                        new LagerSaldo()
+                        {
+                            Isbn = Isbn,
+                            ButikId = 2,
+                            Antal = 0
+                        },
+
+                        new LagerSaldo()
+                        {
+                            Isbn = Isbn,
+                            ButikId = 3,
+                            Antal = 0
+                        }
                     },
-
-                    new LagerSaldo()
+                    Författares = new List<Författare>
                     {
-                        Isbn = Isbn,
-                        ButikId = 3,
-                        Antal = 0
+                        new Författare
+                        {
+
+                            Förnamn = firstName,
+                            Efternamn = lastName
+                        }
                     }
-                },
-                Författares = new List<Författare>
-                {
-                    new Författare
-                    {
+                };
 
-                        Förnamn = firstName,
-                        Efternamn = lastName
-                    }
-                }
-            };
+                db.Böckers.Add(newBook);
+                db.SaveChanges();
 
-            db.Böckers.Add(newBook);
-            db.SaveChanges();
-
-            PopulateAddBookLists();
-            var currentWindow = obj as Window;
-            currentWindow.Close();
+                PopulateAddBookLists();
+                var currentWindow = obj as Window;
+                currentWindow.Close();
+            }
+            else
+            {
+                MessageBox.Show("ISBN must be a number, start with a 9 and be 13 characters long.");
+            }
         }
         else
         {
-            MessageBox.Show("ISBN must be a number, start with a 9 and be 13 characters long.");
+            MessageBox.Show("Book with that Isbn already exists.");
         }
     }
 

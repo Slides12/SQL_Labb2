@@ -30,6 +30,7 @@ internal class MainWindowViewModel : ViewModelBase
     public DelegateCommand SetAdminViewCommand { get; }
     public DelegateCommand AddBooksCommand { get; private set; }
     public DelegateCommand RemoveBooksCommand { get; private set; }
+    public DelegateCommand RemoveAuthorCommand { get; private set; }
 
 
 
@@ -155,6 +156,7 @@ internal class MainWindowViewModel : ViewModelBase
 
     public Action AddBooks { get; set; }
     public Action RemoveBooks { get; set; }
+    public Action RemoveAuthors { get; set; }
 
     public MainWindowViewModel()
     {
@@ -167,6 +169,7 @@ internal class MainWindowViewModel : ViewModelBase
         SetAdminViewCommand = new DelegateCommand(SetAdminView);
         AddBooksCommand = new DelegateCommand(AddBook);
         RemoveBooksCommand = new DelegateCommand(RemoveBook);
+        RemoveAuthorCommand = new DelegateCommand(RemoveAuthor);
 
         // Visibility
         StoreViewVisibility = Visibility.Visible;
@@ -179,10 +182,31 @@ internal class MainWindowViewModel : ViewModelBase
         StoreShowcaseViewModel = new StoreShowcaseViewModel(this);
         AdminViewModel = new AdminViewModel(this);
 
-        TestConnectionToDB();
+        TestDatabaseConnectionAsync();
 
     }
 
+   
+
+    public async void TestDatabaseConnectionAsync()
+    {
+        try
+        {
+            using var db = new DanielJohanssonContext();
+            bool canConnect = await db.Database.CanConnectAsync();
+
+            if (!canConnect)
+            {
+                MessageBox.Show("Failed to connect to the database.");
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"There was an error connecting to the database: {ex.Message}");
+        }
+    }
+
+    private void RemoveAuthor(object obj) => RemoveAuthors();
     private void AddBook(object obj) => AddBooks();
     private void RemoveBook(object obj) => RemoveBooks();
 
@@ -192,19 +216,6 @@ internal class MainWindowViewModel : ViewModelBase
 
         await SetStoreID(store);
 
-    }
-
-    public void TestConnectionToDB()
-    {
-        try 
-        { 
-        using var db = new DanielJohanssonContext();
-        db.Böckers.ToList();
-        }
-        catch (Exception ex) 
-        {
-            MessageBox.Show($"Seems there's something wrong with the connection to the database.{ex.Message}");
-        }
     }
 
     private async Task SetStorePic(string store)

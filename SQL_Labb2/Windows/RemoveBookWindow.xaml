@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SQL_Labb2.Windows"
         mc:Ignorable="d"
-        Title="Remove Book from database?" Height="120" Width="300" Icon="/Assets/Book.ico">
+        Title="Remove Book from database?" Height="120" Width="300" Background="LightGray" Icon="/Assets/Book.ico" WindowStartupLocation="CenterOwner">
     <Grid>
 
         <StackPanel HorizontalAlignment="Center"
@@ -15,7 +15,7 @@
             <Button Content="Remove" 
                     Height="30" 
                     Margin="5"
-                    Command="{Binding RemoveBookCommand}"/>
+                    Command="{Binding RemoveBookCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -202,3 +202,5 @@ C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\Windows
 C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\Windows\AddBookWindow.baml
 C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\Windows\RemoveBookWindow.g.cs
 C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\Windows\RemoveBookWindow.baml
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\Windows\RemoveAuthorsWindow.g.cs
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\Windows\RemoveAuthorsWindow.baml

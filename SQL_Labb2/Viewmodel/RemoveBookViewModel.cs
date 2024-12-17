@@ -34,7 +34,6 @@ class RemoveBookViewModel : ViewModelBase
 
     private void RemoveBook(object obj)
     {
-        Debug.WriteLine(Isbn ?? "");
         if (Isbn != null)
         {
             using var db = new DanielJohanssonContext();
@@ -46,14 +45,24 @@ class RemoveBookViewModel : ViewModelBase
                 .Include(b => b.Författares)
                 .FirstOrDefault(b => b.Isbn == Isbn);
 
+            if(bToRemove != null) 
+            { 
+                db.BokInformations.Remove(bToRemove.IsbnNavigation);
+                db.Böckers.Remove(bToRemove);
 
-            db.BokInformations.Remove(bToRemove.IsbnNavigation);
-            db.Böckers.Remove(bToRemove);
+                db.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("Book doesn't exist.");
 
-            db.SaveChanges();
+            }
 
             var currentWindow = obj as Window;
-            currentWindow.Close();
+            if(currentWindow != null)
+            { 
+                currentWindow.Close();
+            }
         }
         else
         {

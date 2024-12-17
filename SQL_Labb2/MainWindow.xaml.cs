@@ -18,20 +18,41 @@ namespace SQL_Labb2
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainWindowViewModel viewModel;
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel() { AddBooks = OpenAddBookWindow, RemoveBooks = OpenRemoveBookWindow};
+            DataContext = viewModel = new MainWindowViewModel() 
+            { 
+                AddBooks = OpenAddBookWindow, 
+                RemoveBooks = OpenRemoveBookWindow,
+                RemoveAuthors = OpenRemoveAuthorsWindow
+            };
         }
 
         private void OpenAddBookWindow()
         {
-            new AddBookWindow().Show();
+            bool? result =  new AddBookWindow().ShowDialog();
+            if(result != true)
+            {
+                viewModel.StoreShowcaseViewModel.PopulateAdminBookListAsync();
+                viewModel.StoreShowcaseViewModel.PopulateGenreButtonListAsync();
+            }
         }
 
         private void OpenRemoveBookWindow()
         {
-            new RemoveBookWindow().Show();
+            bool? result = new RemoveBookWindow().ShowDialog();
+            if (result != true)
+            {
+                viewModel.StoreShowcaseViewModel.PopulateAdminBookListAsync();
+                viewModel.StoreShowcaseViewModel.PopulateGenreButtonListAsync();
+            }
+        }
+
+        private void OpenRemoveAuthorsWindow()
+        {
+            bool? result = new RemoveAuthorsWindow().ShowDialog();
         }
     }
 }

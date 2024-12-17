@@ -86,10 +86,10 @@
         <StackPanel Grid.Column="1" 
                     Grid.Row="3"
                     Grid.ColumnSpan="2">
-            <Label Content="Change to desired quantity and press save below to save changes." HorizontalContentAlignment="Center"/>
+            <Label Content="Change to desired quantity/Edit book information and press save below to save changes." HorizontalContentAlignment="Center"/>
             <Button Content="Save changes" 
                     Width="100" 
-                    Margin="5"
+                    Margin="0"
                     Command="{Binding AdminViewModel.SaveBookInformationCommand}"
                     
         />
@@ -98,27 +98,43 @@
         
 
         <StackPanel Grid.Row="1" Grid.Column="2" Grid.RowSpan="3">
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Isbn:" FontWeight="Bold"/>
+                <TextBox Text="{Binding AdminViewModel.Book.Isbn}" 
+                         HorizontalContentAlignment="Center" 
+                         Width="100" 
+                         VerticalContentAlignment="Center"
+                         IsReadOnly="True"/>
+
+            </StackPanel>
+            
             <Label Content="Edit what you need below, press save to change all changes." FontWeight="Bold" HorizontalContentAlignment="Center"/>
             <TextBox Text="{Binding AdminViewModel.BookInfo.Beskrivning}" 
                      TextWrapping="Wrap" 
                      Grid.RowSpan="2" 
                      Height="100" 
-                     Margin="10" 
+                     Margin="0" 
                      VerticalScrollBarVisibility="Auto"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            
+                
+
+                <Label Content="Author" FontWeight="Bold"/>
+                <TextBox Text="{Binding AdminViewModel.Author.Förnamn}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox Text="{Binding AdminViewModel.Author.Efternamn}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
                 <Label Content="Genre" FontWeight="Bold"/>
                 <TextBox Text="{Binding AdminViewModel.BookInfo.Genre}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
                 <Label Content="Language" FontWeight="Bold" Margin=" 10 0 0 0"/>
                 <TextBox Text="{Binding AdminViewModel.Book.Språk}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
-
                 <Label Content="Price" FontWeight="Bold" Margin=" 10 0 0 0"/>
                 <TextBox Text="{Binding AdminViewModel.Book.Pris}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
             </StackPanel>
         </StackPanel>
+
 
 
     </Grid>

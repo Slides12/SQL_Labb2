@@ -153,7 +153,7 @@ class StoreShowcaseViewModel : ViewModelBase
             (
             await db.Böckers
             .Include(book => book.LagerSaldos)
-            .Where(book => book.LagerSaldos.Any(saldo => saldo.ButikId == mainWindowViewModel.StoreId && saldo.Antal > 0))
+            .Where(book => book.LagerSaldos.Any(saldo => saldo.ButikId == mainWindowViewModel.StoreId))
             .ToListAsync()
             );
         RaiseProperyChanged("Books");
@@ -205,22 +205,24 @@ class StoreShowcaseViewModel : ViewModelBase
     private void ShowAllBooks()
     {
         using var db = new DanielJohanssonContext();
-        Books.Clear();
-        var allBooks = db.Böckers
-            .Include(b => b.LagerSaldos)
-            .Where(b => b.LagerSaldos.Any(l => l.ButikId == mainWindowViewModel.StoreId || mainWindowViewModel.StoreId == 4))
-            .ToList();
-        foreach (var book in allBooks)
-        {
-            Books.Add(book);
-        }
-        if(mainWindowViewModel.StoreId != 4) 
-        { 
-        mainWindowViewModel.SetStoreShowcaseCommand.Execute(this);
-        }
-        else
-        {
-            mainWindowViewModel.SetAdminViewCommand.Execute(this);
+        if(Books != null) { 
+            Books.Clear();
+            var allBooks = db.Böckers
+                .Include(b => b.LagerSaldos)
+                .Where(b => b.LagerSaldos.Any(l => l.ButikId == mainWindowViewModel.StoreId || mainWindowViewModel.StoreId == 4))
+                .ToList();
+            foreach (var book in allBooks)
+            {
+                Books.Add(book);
+            }
+            if(mainWindowViewModel.StoreId != 4) 
+            { 
+            mainWindowViewModel.SetStoreShowcaseCommand.Execute(this);
+            }
+            else
+            {
+                mainWindowViewModel.SetAdminViewCommand.Execute(this);
+            }
         }
     }
 
@@ -229,26 +231,29 @@ class StoreShowcaseViewModel : ViewModelBase
     private void FilterBooksByGenre(string genre)
     {
         using var db = new DanielJohanssonContext();
-        Books.Clear();
-
-        var filteredBooks = db.Böckers
-            .Include(b => b.LagerSaldos) 
-            .Include(b => b.IsbnNavigation) 
-            .Where(b => b.IsbnNavigation.Genre == genre && b.LagerSaldos.Any(l =>  l.ButikId == mainWindowViewModel.StoreId || mainWindowViewModel.StoreId == 4))
-            .ToList();
-        foreach (var book in filteredBooks)
+        if (Books != null)
         {
-            Books.Add(book);
-        }
+            Books.Clear();
+
+            var filteredBooks = db.Böckers
+                .Include(b => b.LagerSaldos)
+                .Include(b => b.IsbnNavigation)
+                .Where(b => b.IsbnNavigation.Genre == genre && b.LagerSaldos.Any(l => l.ButikId == mainWindowViewModel.StoreId || mainWindowViewModel.StoreId == 4))
+                .ToList();
+            foreach (var book in filteredBooks)
+            {
+                Books.Add(book);
+            }
 
 
-        if(mainWindowViewModel.StoreId != 4) 
-        { 
-        mainWindowViewModel.SetStoreShowcaseCommand.Execute(this);
-        }
-        else
-        {
-            mainWindowViewModel.SetAdminViewCommand.Execute(this);
+            if (mainWindowViewModel.StoreId != 4)
+            {
+                mainWindowViewModel.SetStoreShowcaseCommand.Execute(this);
+            }
+            else
+            {
+                mainWindowViewModel.SetAdminViewCommand.Execute(this);
+            }
         }
     }
 
