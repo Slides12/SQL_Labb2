@@ -37,7 +37,7 @@ public partial class Böcker
             }
             else
             {
-                return $"/Assets/Books/0.jpg";
+                return Path.Combine(Directory.GetCurrentDirectory(), "Assets", "Books", "0.jpg");
             }
         }
     }

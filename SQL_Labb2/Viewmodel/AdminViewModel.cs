@@ -10,7 +10,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+using System.Windows.Media;
 using static System.Reflection.Metadata.BlobBuilder;
+using System.Windows;
+using Microsoft.Win32;
+using System.IO;
 
 namespace SQL_Labb2.Viewmodel;
 
@@ -23,9 +28,11 @@ internal class AdminViewModel : ViewModelBase
     public DelegateCommand AddBookCommand { get; }
     public DelegateCommand RemoveBookCommand { get; }
     public DelegateCommand SaveBookInformationCommand { get; }
+    public DelegateCommand AddCoverPictureCommand { get; }
 
     public ObservableCollection<LagerSaldo> StockBalance { get; private set; }
 
+    private string BooksFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "Assets", "Books");
 
     private int _selectedIndex;
 
@@ -85,8 +92,50 @@ internal class AdminViewModel : ViewModelBase
         AddBookCommand = new DelegateCommand(AddBook);
         RemoveBookCommand = new DelegateCommand(RemoveBook);
         SaveBookInformationCommand = new DelegateCommand(SaveBookChanges);
+        AddCoverPictureCommand = new DelegateCommand(AddCoverPicture);
 
     }
+
+    private void AddCoverPicture(object obj)
+    {
+        OpenFileDialog openFileDialog = new OpenFileDialog
+        {
+            Title = "Select a .jpg Picture",
+            Filter = "Image Files|*.jpg;",
+            Multiselect = false
+        };
+
+        if (openFileDialog.ShowDialog() == true)
+        {
+            string selectedFile = openFileDialog.FileName;
+
+            string extension = Path.GetExtension(selectedFile).ToLower();
+            if (extension != ".jpg" )
+            {
+                MessageBox.Show("Choose only .jpg, only format that works for now.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            string isbn = mainWindowViewModel.StoreShowcaseViewModel.ActiveBook?.Isbn;
+
+            string destinationFileName = $"{isbn}.jpg";
+            string destinationPath = Path.Combine(BooksFolderPath, destinationFileName);
+
+            try
+            {
+                File.Copy(selectedFile, destinationPath, overwrite: true);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while saving the file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        mainWindowViewModel.StoreShowcaseViewModel.PopulateAdminBookListAsync();
+    }
+
+
+
+
 
     private void SaveBookChanges(object obj)
     {
