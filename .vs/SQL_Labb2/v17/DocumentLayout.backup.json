@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|c:\\users\\djoha\\source\\repos\\sql_labb2\\sql_labb2\\view\\storeshowcase.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|solutionrelative:sql_labb2\\view\\storeshowcase.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|c:\\users\\djoha\\source\\repos\\sql_labb2\\sql_labb2\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|solutionrelative:sql_labb2\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -26,6 +30,18 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "StoreShowcase.xaml",
+              "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\View\\StoreShowcase.xaml",
+              "RelativeDocumentMoniker": "SQL_Labb2\\View\\StoreShowcase.xaml",
+              "ToolTip": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\View\\StoreShowcase.xaml",
+              "RelativeToolTip": "SQL_Labb2\\View\\StoreShowcase.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-18T12:09:53.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\MainWindow.xaml",
               "RelativeDocumentMoniker": "SQL_Labb2\\MainWindow.xaml",
@@ -37,7 +53,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "secrets.json",
               "DocumentMoniker": "C:\\Users\\djoha\\AppData\\Roaming\\Microsoft\\UserSecrets\\860abb10-171a-463d-b0f2-5f5e3e907f9c\\secrets.json",
               "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\860abb10-171a-463d-b0f2-5f5e3e907f9c\\secrets.json",
@@ -45,12 +61,11 @@
               "RelativeToolTip": "..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\860abb10-171a-463d-b0f2-5f5e3e907f9c\\secrets.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-18T11:42:34.429Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-18T11:42:34.429Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "DanielJohanssonContext.cs",
               "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\Model\\DanielJohanssonContext.cs",
               "RelativeDocumentMoniker": "SQL_Labb2\\Model\\DanielJohanssonContext.cs",
