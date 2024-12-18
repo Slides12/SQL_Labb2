@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|c:\\users\\djoha\\source\\repos\\sql_labb2\\sql_labb2\\viewmodel\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|solutionrelative:sql_labb2\\viewmodel\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|c:\\users\\djoha\\source\\repos\\sql_labb2\\sql_labb2\\viewmodel\\storeshowcaseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|solutionrelative:sql_labb2\\viewmodel\\storeshowcaseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|c:\\users\\djoha\\source\\repos\\sql_labb2\\sql_labb2\\viewmodel\\addbookviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|solutionrelative:sql_labb2\\viewmodel\\addbookviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|c:\\users\\djoha\\source\\repos\\sql_labb2\\sql_labb2\\view\\adminview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|solutionrelative:sql_labb2\\view\\adminview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|c:\\users\\djoha\\source\\repos\\sql_labb2\\sql_labb2\\view\\storeshowcase.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{6CF465F4-1638-4B19-BFE3-9BD943DF36D1}|SQL_Labb2\\SQL_Labb2.csproj|solutionrelative:sql_labb2\\view\\storeshowcase.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -30,6 +46,57 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AdminViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\Viewmodel\\AdminViewModel.cs",
+              "RelativeDocumentMoniker": "SQL_Labb2\\Viewmodel\\AdminViewModel.cs",
+              "ToolTip": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\Viewmodel\\AdminViewModel.cs",
+              "RelativeToolTip": "SQL_Labb2\\Viewmodel\\AdminViewModel.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAkwFQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T12:30:58.904Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StoreShowcaseViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\Viewmodel\\StoreShowcaseViewModel.cs",
+              "RelativeDocumentMoniker": "SQL_Labb2\\Viewmodel\\StoreShowcaseViewModel.cs",
+              "ToolTip": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\Viewmodel\\StoreShowcaseViewModel.cs",
+              "RelativeToolTip": "SQL_Labb2\\Viewmodel\\StoreShowcaseViewModel.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T12:30:50.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AddBookViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\Viewmodel\\AddBookViewModel.cs",
+              "RelativeDocumentMoniker": "SQL_Labb2\\Viewmodel\\AddBookViewModel.cs",
+              "ToolTip": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\Viewmodel\\AddBookViewModel.cs",
+              "RelativeToolTip": "SQL_Labb2\\Viewmodel\\AddBookViewModel.cs",
+              "ViewState": "AgIAAJoAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T12:30:34.576Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AdminView.xaml",
+              "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\View\\AdminView.xaml",
+              "RelativeDocumentMoniker": "SQL_Labb2\\View\\AdminView.xaml",
+              "ToolTip": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\View\\AdminView.xaml",
+              "RelativeToolTip": "SQL_Labb2\\View\\AdminView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-18T12:30:31.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "StoreShowcase.xaml",
               "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\View\\StoreShowcase.xaml",
               "RelativeDocumentMoniker": "SQL_Labb2\\View\\StoreShowcase.xaml",
@@ -41,7 +108,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\MainWindow.xaml",
               "RelativeDocumentMoniker": "SQL_Labb2\\MainWindow.xaml",
@@ -52,7 +119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "secrets.json",
               "DocumentMoniker": "C:\\Users\\djoha\\AppData\\Roaming\\Microsoft\\UserSecrets\\860abb10-171a-463d-b0f2-5f5e3e907f9c\\secrets.json",
               "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\860abb10-171a-463d-b0f2-5f5e3e907f9c\\secrets.json",
@@ -64,7 +131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "DanielJohanssonContext.cs",
               "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\SQL_Labb2\\SQL_Labb2\\Model\\DanielJohanssonContext.cs",
               "RelativeDocumentMoniker": "SQL_Labb2\\Model\\DanielJohanssonContext.cs",

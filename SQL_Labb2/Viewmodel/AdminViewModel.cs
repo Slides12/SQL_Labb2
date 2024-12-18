@@ -89,22 +89,14 @@ internal class AdminViewModel : ViewModelBase
 
 
         SetActiveStoreCommand = new DelegateCommand(SetActiveStore);
-        AddBookCommand = new DelegateCommand(AddBook, HasBooksAlready);
+        AddBookCommand = new DelegateCommand(AddBook);
         RemoveBookCommand = new DelegateCommand(RemoveBook);
         SaveBookInformationCommand = new DelegateCommand(SaveBookChanges);
         AddCoverPictureCommand = new DelegateCommand(AddCoverPicture);
 
     }
 
-    private bool HasBooksAlready(object? arg)
-    {
-        using var db = new DanielJohanssonContext();
-        if (mainWindowViewModel.StoreShowcaseViewModel.ActiveBook == null) { return false; }
-        bool gg = db.LagerSaldos.Where(ls => ls.Isbn == mainWindowViewModel.StoreShowcaseViewModel.ActiveBook.Isbn && ls.ButikId == SelectedIndex + 1).Any();
-
-        return gg;
-
-    }
+   
 
     private void AddCoverPicture(object obj)
     {
