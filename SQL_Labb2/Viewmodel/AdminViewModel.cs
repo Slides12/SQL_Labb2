@@ -128,6 +128,8 @@ internal class AdminViewModel : ViewModelBase
 
             string isbn = mainWindowViewModel.StoreShowcaseViewModel.ActiveBook?.Isbn;
 
+            if (isbn is null) return;
+
             string destinationFileName = $"{isbn}.jpg";
             string destinationPath = Path.Combine(BooksFolderPath, destinationFileName);
 

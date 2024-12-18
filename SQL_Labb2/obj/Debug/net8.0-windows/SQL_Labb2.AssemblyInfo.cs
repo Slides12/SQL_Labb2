@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("860abb10-171a-463d-b0f2-5f5e3e907f9c")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("SQL_Labb2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9bfef5afec1c8e6df2be5c733225737047e47b3f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7625cddfea444a754185586642cb6c6a55ac4e67")]
 [assembly: System.Reflection.AssemblyProductAttribute("SQL_Labb2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SQL_Labb2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -204,3 +204,10 @@ C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\Windows
 C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\Windows\RemoveBookWindow.baml
 C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\Windows\RemoveAuthorsWindow.g.cs
 C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\obj\Debug\net8.0-windows\Windows\RemoveAuthorsWindow.baml
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.dll
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.UserSecrets.dll
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\djoha\source\repos\SQL_Labb2\SQL_Labb2\bin\Debug\net8.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
