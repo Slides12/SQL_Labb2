@@ -1,5 +1,5 @@
 # SQL_Labb2
-Second laboratory in SQL
+Third laboratory in Database course
 
 This is a WPF application who uses the database we created in the first laboratory.
 I have provided the .bak file in the SQL_Labb2\Sql Backup folder. This needs to be restored.
